@@ -1,0 +1,106 @@
+/*
+    Category Page Specific Styles
+    A clean, modular grid for displaying categories.
+*/
+
+body {
+    background-color: var(--background-color); /* Revert to global background color */
+}
+
+.categories-section {
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    margin-bottom: var(--spacing-lg);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-color);
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.category-grid {
+    display: grid;
+    /* This creates a responsive, staggered look */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: 10px; /* This sets the base for the masonry effect */
+    gap: var(--spacing-md);
+    padding: 0;
+}
+
+.category-card {
+    display: block; /* Makes the entire card a clickable link */
+    text-decoration: none;
+    color: var(--text-color);
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 1rem;
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+}
+
+/* Unique grid-row spans for each card to create the Pinterest look */
+.item-1 { grid-row: span 11; }
+.item-2 { grid-row: span 15; }
+.item-3 { grid-row: span 14; }
+.item-4 { grid-row: span 13; }
+.item-5 { grid-row: span 19; }
+.item-6 { grid-row: span 15; }
+.item-7 { grid-row: span 18; }
+.item-8 { grid-row: span 20; }
+.item-9 { grid-row: span 15; }
+
+
+.card-content span {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.category-card:hover .card-content span {
+    color: var(--accent-color);
+}

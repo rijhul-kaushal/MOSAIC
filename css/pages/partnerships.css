@@ -1,0 +1,246 @@
+/*
+    Partnerships Form Specific Styles
+    File: partnerships.css
+*/
+
+/* --- Background Image & Overlay --- */
+.form-background-hero {
+    position: relative;
+    padding: var(--spacing-lg) 0; /* Adjust padding as needed */
+    min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Ensure it fills screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/assets/images/partnerships/forms_bg.jpg'); /* Your provided image */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Parallax effect */
+    overflow: hidden; /* Hide any overflow from background */
+    margin: top 20px;
+}
+
+.form-background-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white overlay */
+    z-index: 1; /* Ensure overlay is behind the form-card */
+    
+}
+
+/* --- Form Card Styling --- */
+.form-container-wrapper {
+    position: relative; /* Needed for z-index to work */
+    z-index: 2; /* Ensure form is above the overlay */
+    max-width: 1000px; /* Increased max-width for better spacing */
+    margin: 0 auto;
+    padding: var(--spacing-md); /* Added padding for smaller screens */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.form-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for the card */
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    max-width: 700px;
+    margin: 0 auto;
+    backdrop-filter: blur(5px); /* Optional: adds a subtle blur effect behind the card */
+    opacity: 0.8;
+}
+
+.form-card h2 {
+    text-align: center;
+    font-size: 2.8rem; /* Slightly larger heading */
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow */
+}
+
+.form-card p {
+    text-align: center;
+    color: #555; /* Darker text for readability */
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.1rem;
+}
+
+/* --- Form Section & Group Styling --- */
+.form-section {
+    border: none;
+    padding: 0;
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-section legend {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; /* Larger legend font */
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid var(--middle-purple);
+    padding-bottom: 0.5rem;
+    width: 100%; /* Ensure legend border spans full width */
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--text-color); /* Maintain readability */
+}
+
+.form-group input:not([type="radio"]):not([type="checkbox"]),
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem; /* Increased padding for inputs */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* More rounded corners */
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent input background */
+}
+
+.form-group input:not([type="radio"]):not([type="checkbox"]):focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--twilight-lavender); /* Pinkish-purple accent on focus */
+    box-shadow: 0 0 0 4px rgba(219, 144, 190, 0.3); /* Softer, wider shadow */
+    background-color: #fff; /* Solid white on focus for clarity */
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.required {
+    color: var(--twilight-lavender);
+    margin-left: 5px;
+}
+
+.helper-text {
+    display: block;
+    font-size: 0.85rem;
+    color: #777; /* Darker helper text */
+    margin-top: 0.4rem;
+}
+
+/* Radio and Checkbox Styling */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem; /* Increased gap */
+    justify-content: flex-start; /* Align to start */
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+    margin-right: 0.75rem; /* More spacing */
+    transform: scale(1.1); /* Slightly larger checkboxes/radios */
+}
+
+
+
+/* File Upload Button Styling */
+input[type="file"] {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+input[type="file"]::-webkit-file-upload-button {
+    background-color: var(--middle-purple);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem; /* Larger padding */
+    border-radius: 8px; /* More rounded */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+}
+input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: var(--twilight-lavender);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Submit Button */
+.cta-button {
+    width: 100%;
+    padding: 1.2rem; /* Larger button */
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 10px; /* More rounded */
+    cursor: pointer;
+    font-size: 1.1rem; /* Larger text */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+}
+.cta-button:hover {
+    background-color: var(--twilight-lavender);
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-card {
+        padding: 1.5rem;
+    }
+    .form-card h2 {
+        font-size: 2rem;
+    }
+    .form-section legend {
+        font-size: 1.5rem;
+    }
+    .radio-group,
+    .checkbox-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .form-background-hero {
+        padding: var(--spacing-md) 0; /* Adjust padding for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .form-card {
+        padding: 1rem;
+    }
+    .form-card h2 {
+        font-size: 1.8rem;
+    }
+    .form-section legend {
+        font-size: 1.3rem;
+    }
+    .form-group input:not([type="radio"]):not([type="checkbox"]),
+    .form-group select,
+    .form-group textarea,
+    .cta-button {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+}

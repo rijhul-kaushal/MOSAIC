@@ -1,0 +1,305 @@
+:root {
+    /* Using the main color palette for consistency */
+    --brown-chocolate: #620E2C;
+    --dark-chocolate: #3F0A29;
+    --twilight-lavender: #94426A;
+    --middle-purple: #DB90BE;
+    --spanish-pink: #F8BCC1;
+    --primary-color: var(--dark-chocolate);
+    --text-color: #333;
+    --light-text-color: #fff;
+    --background-color: #fff;
+    --accent-color: var(--middle-purple);
+
+    --rhode-bg: #F8F5F0;
+    --rhode-text-dark: #2F2F2F;
+
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+}
+#eyeliner,
+#eyeshadow,
+#lashes,
+#brows {
+  scroll-margin-top: 150px;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+/* Page Intro Section */
+.page-intro {
+    text-align: center;
+     padding: calc(var(--spacing-sm) * 0.5) var(--spacing-sm);
+    max-width: 800px;
+    margin: 0 auto;
+    max-height:11px;
+}
+
+.page-intro h2 {
+    font-size: 2rem;
+    color: var(--dark-chocolate);
+    margin-bottom: 0;
+}
+
+.page-intro p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+/* Sub-Navigation Bar */
+.sub-navbar {
+    background-color: var(--background-color);
+    border-bottom: 1px solid #ddd;
+    position: static; 
+    z-index: 5;
+    width: 100%;
+}
+.sub-nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0.75rem 0;
+    margin: 0;
+}
+
+.sub-nav-links li a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #777;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.sub-nav-links li a:hover {
+    color: var(--dark-chocolate);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Aesthetic Images Section */
+.aesthetic-images-section {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-md);
+    background-color: var(--background-color);
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.aesthetic-image-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.aesthetic-image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Product Categories - Two-Column Layout */
+.product-category {
+    padding: var(--spacing-lg) var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+    .product-category {
+        flex-direction: column;
+        align-items: center;
+         scroll-margin-top: 150px;
+    }
+
+    .category-intro-card {
+       
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+
+.category-intro-card {
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: var(--spacing-md);
+    position: sticky;
+    top: 170px;
+    height: fit-content;
+}
+
+.category-intro-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: var(--spacing-md);
+}
+
+.category-intro-card h3 {
+    font-size: 2.25rem;
+    color: var(--rhode-text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.category-intro-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.product-scroller-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    padding-top: 20px;
+}
+
+.scroller-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    padding-right: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
+    background: linear-gradient(to left, var(--background-color) 70%, transparent);
+    height: 40px;
+}
+
+.scroller-arrows {
+    display: flex;
+}
+
+.scroller-arrows .arrow {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    color: #888;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroller-arrows .arrow:hover {
+    background-color: #eee;
+    color: var(--dark-chocolate);
+}
+
+/* Product Scroller and Card Styles */
+.product-scroller {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: var(--spacing-md);
+}
+
+.product-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.product-card {
+    flex: 0 0 300px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    padding: 1.5rem;
+}
+
+.product-info {
+    padding: 1rem;
+    padding-top: 0;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-name, .product-desc {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    color: var(--dark-chocolate);
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.product-desc {
+    text-transform: none;
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.add-to-bag-btn {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    background-color: var(--brown-chocolate);
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+.add-to-bag-btn:hover {
+    background-color: var(--dark-chocolate);
+}
+/* Add this rule to the bottom of your eyes.css file */
+.lashes-promo-image {
+    max-height: 350px; /* Adjust this value to your preferred size */
+    width: auto; /* Maintain aspect ratio */
+}
+.brows-promo-image {
+    max-height: 320px;
+    width: auto;
+}
