@@ -22,7 +22,7 @@
 #eyeshadow,
 #lashes,
 #brows {
-  scroll-margin-top: 150px;
+    scroll-margin-top: 150px;
 }
 
 body {
@@ -32,7 +32,7 @@ body {
 /* Page Intro Section */
 .page-intro {
     text-align: center;
-     padding: calc(var(--spacing-sm) * 0.5) var(--spacing-sm);
+    padding: calc(var(--spacing-sm) * 0.5) var(--spacing-sm);
     max-width: 800px;
     margin: 0 auto;
     max-height:11px;
@@ -116,21 +116,6 @@ body {
     align-items: flex-start;
 }
 
-@media (max-width: 900px) {
-    .product-category {
-        flex-direction: column;
-        align-items: center;
-         scroll-margin-top: 150px;
-    }
-
-    .category-intro-card {
-       
-        width: 100%;
-        max-width: 500px;
-    }
-}
-
-
 .category-intro-card {
     flex: 0 0 350px;
     display: flex;
@@ -164,6 +149,8 @@ body {
 
 .product-scroller-container {
     flex: 1;
+    /* Important: Use min-width to prevent overflow */
+    min-width: 0; 
     overflow: hidden;
     position: relative;
     padding-top: 20px;
@@ -302,4 +289,96 @@ body {
 .brows-promo-image {
     max-height: 320px;
     width: auto;
+}
+
+
+/* --- Responsive Fixes --- */
+@media (max-width: 900px) {
+    .product-category {
+        flex-direction: column;
+        align-items: center;
+        scroll-margin-top: 150px;
+        padding: var(--spacing-md) 0;
+    }
+
+    .category-intro-card {
+        width: 100%;
+        max-width: none;
+        position: static; 
+        padding-left: 0;
+        padding-right: 0;
+        top: auto;
+    }
+    .page-intro {
+        padding-top: 3rem; /* Adds more space above the heading */
+        padding-bottom: 3rem; /* Adds more space below the heading */
+    }
+    /* Crucial Fix: Ensure the scroller container doesn't overflow its parent */
+    .product-scroller-container {
+        width: 100%; /* Take full width on mobile */
+        padding: 0;
+        /* Remove the `flex: 1` as it can cause issues with explicit width */
+        flex: unset; 
+    }
+    
+    .scroller-header {
+        position: static;
+        padding-right: 0;
+        justify-content: space-between;
+        margin-left: var(--spacing-md); /* Add left margin for consistent spacing */
+        margin-right: var(--spacing-md); /* Add right margin for consistent spacing */
+        width: auto; /* Allow header to size based on content within margins */
+    }
+
+    .product-scroller {
+        padding: 1rem var(--spacing-md); /* Adjust padding for mobile view */
+        justify-content: flex-start; /* Align cards to the left */
+    }
+
+    .product-card {
+        flex: 0 0 85vw; /* Make cards take up 85% of viewport width */
+        margin-right: var(--spacing-sm); /* Add some space between cards */
+    }
+}
+
+@media (max-width: 768px) {
+    .aesthetic-images-section {
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    .aesthetic-image-card {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+    }
+    .sub-navbar {
+        overflow-x: auto; /* Allows horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Improves scrolling on iOS */
+        padding: 0 1rem;
+    }
+    .sub-nav-links {
+        flex-wrap: nowrap; /* Prevents wrapping and enables scrolling */
+        justify-content: flex-start;
+        gap: 1.5rem; /* Ensures links have space between them */
+    }
+    .sub-navbar {
+    /* ... existing styles ... */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+/* For Webkit browsers like Chrome, Safari, etc. */
+.sub-navbar::-webkit-scrollbar {
+    display: none;
+}
+    
+    .aesthetic-image-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* Ensure image scales down to fit */
+    }
+
 }
