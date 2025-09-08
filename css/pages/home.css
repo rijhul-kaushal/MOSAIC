@@ -102,8 +102,7 @@
     background-color: var(--spanish-pink);
     flex-wrap: wrap;
     /* These 2 lines make the banner stretch from edge to edge */
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
+  
 }
 
 .promo-text {
