@@ -4,7 +4,7 @@
 */
 
 #bestsellers {
-    scroll-margin-top: 120px; /* A value slightly larger than your header's height */
+    scroll-margin-top: 105px; /* A value slightly larger than your header's height */
 }
 /* Box Sizing Reset */
 *, *::before, *::after {
