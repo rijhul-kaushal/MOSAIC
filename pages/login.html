@@ -224,6 +224,10 @@
                             <div class="form-group">
                                 <input type="password" id="signupPassword" name="signupPassword" placeholder="Password" required>
                             </div>
+                            <div class="form-group">
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                            </div>
+                            <p id="passwordError" class="error-message">Passwords do not match. Please try again.</p>
                             <div class="form-actions">
                                 <button type="submit" class="auth-btn">Create Account</button>
                             </div>
@@ -353,6 +357,17 @@
             event.preventDefault();
             const emailInput = document.getElementById('signupEmail').value;
             const passwordInput = document.getElementById('signupPassword').value;
+            const confirmPasswordInput = document.getElementById('confirmPassword').value;
+            const passwordError = document.getElementById('passwordError');
+
+            // Check if passwords match
+            if (passwordInput !== confirmPasswordInput) {
+                passwordError.style.display = 'block';
+                return; // Stop form submission if passwords don't match
+            }
+
+            // Hide error message if passwords match
+            passwordError.style.display = 'none';
 
             // Save new credentials to localStorage
             localStorage.setItem('userEmail', emailInput);
@@ -363,7 +378,41 @@
             // Switch back to the login form
             signupFormSection.style.display = 'none';
             loginFormSection.style.display = 'block';
-             authImagePanel.style.backgroundImage = "url('../assets/images/sign_in/signin.png')";
+            authImagePanel.style.backgroundImage = "url('../assets/images/sign_in/signin.png')";
+        });
+
+        // Real-time password confirmation validation
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const passwordInput = document.getElementById('signupPassword').value;
+            const confirmPasswordInput = this.value;
+            const passwordError = document.getElementById('passwordError');
+
+            if (confirmPasswordInput.length > 0) {
+                if (passwordInput !== confirmPasswordInput) {
+                    passwordError.style.display = 'block';
+                    passwordError.textContent = 'Passwords do not match. Please try again.';
+                } else {
+                    passwordError.style.display = 'none';
+                }
+            } else {
+                passwordError.style.display = 'none';
+            }
+        });
+
+        // Also validate when the main password field changes
+        document.getElementById('signupPassword').addEventListener('input', function() {
+            const passwordInput = this.value;
+            const confirmPasswordInput = document.getElementById('confirmPassword').value;
+            const passwordError = document.getElementById('passwordError');
+
+            if (confirmPasswordInput.length > 0) {
+                if (passwordInput !== confirmPasswordInput) {
+                    passwordError.style.display = 'block';
+                    passwordError.textContent = 'Passwords do not match. Please try again.';
+                } else {
+                    passwordError.style.display = 'none';
+                }
+            }
         });
     </script>
 </body>

@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="../assets/images/logos/main-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -44,38 +45,113 @@
         </nav>
     </header>
 
-    <main class="cart-page-content">
-        <div class="cart-header">
-            <h2>My Cart</h2>
-        </div>
-        
-        <div class="cart-container">
-            <section class="cart-items-list" id="cart-items-container">
-                
-                <div class="cart-empty" id="cart-empty-message">
-                    <p>Your cart is empty.</p>
-                    <a href="../index.html" class="cta-button">Start Shopping</a>
-                </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="cart-hero">
+            <div class="hero-content">
+                <h1>Your Shopping Cart</h1>
+                <p>Review your selected beauty essentials and proceed to checkout</p>
+            </div>
+        </section>
 
-            </section>
-            
-            <section class="cart-summary">
-                <h3>Order Summary</h3>
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <span id="summary-subtotal">₹0.00</span>
+        <!-- Cart Content -->
+        <section class="cart-page-content">
+            <div class="container">
+                <div class="cart-container">
+                    <div class="cart-items-section">
+                        <h2>Cart Items</h2>
+                        <div class="cart-items-list" id="cart-items-container">
+                            
+                            <div class="cart-empty" id="cart-empty-message">
+                                <div class="empty-cart-icon">
+                                    <img src="/assets/images/categories/complexion/comp1.jpg" alt="Empty Cart" class="cart-icon-image">
+                                </div>
+                                <h3>Your cart is empty</h3>
+                                <p>Looks like you haven't added any items to your cart yet.</p>
+                                <a href="../index.html" class="cta-button">Start Shopping</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="cart-summary-section">
+                        <div class="cart-summary">
+                            <h3>Order Summary</h3>
+                            <div class="summary-details">
+                                <div class="summary-row">
+                                    <span>Subtotal</span>
+                                    <span id="summary-subtotal">₹0.00</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Shipping</span>
+                                    <span class="free-shipping">FREE</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Tax</span>
+                                    <span id="summary-tax">₹0.00</span>
+                                </div>
+                                <div class="summary-row total-row">
+                                    <span>Total</span>
+                                    <span id="summary-total">₹0.00</span>
+                                </div>
+                            </div>
+                            <button class="checkout-btn">Proceed to Checkout</button>
+                            <div class="security-badges">
+                                <div class="security-badge">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Secure Checkout</span>
+                                </div>
+                                <div class="security-badge">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Free Shipping</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="summary-row">
-                    <span>Shipping</span>
-                    <span>FREE</span>
+            </div>
+        </section>
+
+        <!-- Recommended Products -->
+        <section class="recommended-products">
+            <div class="container">
+                <h2>You Might Also Like</h2>
+                <div class="recommended-grid">
+                    <div class="recommended-card">
+                        <div class="recommended-image">
+                            <img src="/assets/images/categories/nails/nailprod2.avif" alt="Recommended Product">
+                        </div>
+                        <div class="recommended-content">
+                            <h4>Pillow Talk Lipstick</h4>
+                            <p class="recommended-price">₹2,500</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recommended-card">
+                        <div class="recommended-image">
+                            <img src="/assets/images/categories/complexion/loreal.avif" alt="Recommended Product">
+                        </div>
+                        <div class="recommended-content">
+                            <h4>Easy Blur Foundation</h4>
+                            <p class="recommended-price">₹3,200</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <div class="recommended-card">
+                        <div class="recommended-image">
+                            <img src="../assets/images/products/tira_mascara.jpg" alt="Recommended Product">
+                        </div>
+                        <div class="recommended-content">
+                            <h4>Tira Mascara</h4>
+                            <p class="recommended-price">₹1,800</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="summary-row total-row">
-                    <span>Total</span>
-                    <span id="summary-total">₹0.00</span>
-                </div>
-                <button class="cta-button checkout-btn">Proceed to Checkout</button>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer">

@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop by Brand - Mosaic Beauty</title>
+    <title>Our Brands | Mosaic</title>
     
     <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/pages/brands.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css/pages/brands.css">
     <link rel="icon" href="../assets/images/logos/main-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div class="top-promo-bar">
         MOSAIC | CLEAN, SKIN-CENTRIC BEAUTY&trade;
     </div>
-    
+
     <header class="main-header">
         <div class="header-top">
             <a href="../index.html" class="logo">
@@ -24,9 +26,6 @@
                 <h1>MOSAIC</h1>
             </a>
             <a href="cart.html" class="cart-icon">🛒</a>
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
         </div>
         <nav class="navbar">
             <ul class="nav-links">
@@ -45,124 +44,205 @@
         </nav>
     </header>
 
-    <main class="brands-page-main">
-        <div class="brands-intro">
-            <h2>Brands</h2>
-            <p>From iconic houses to breakthrough innovators, discover our curated collection.</p>
+    <main>
+        <!-- Hero Section -->
+        <section class="brands-hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Our Curated Brands</h1>
+                    <p>Discover the world's most innovative and conscious beauty brands, carefully selected for their commitment to clean, inclusive, and high-quality products.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="/assets/images/brands/brandsmain.jpg" alt="Rhode Peptide Lip Tint" class="hero-product-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sub Navigation -->
+        <nav class="sub-navbar">
+            <ul class="sub-nav-links">
+                <li><a href="#fenty">FENTY BEAUTY</a></li>
+                <li><a href="#benefit">BENEFIT COSMETICS</a></li>
+                <li><a href="#kiko">KIKO MILANO</a></li>
+            </ul>
+        </nav>
+
+        <!-- Page Intro -->
+        <div class="page-intro">
+            <h2>OUR BRANDS</h2>
         </div>
 
-        <div class="brands-grid-simple">
+        <!-- Fenty Beauty Section -->
+        <section class="product-category" id="fenty">
+            <div class="category-intro-card">
+                <img src="../assets/images/brands/fenty_1.jpg" alt="Fenty Beauty">
+                <div class="card-content">
+                    <h3>Fenty Beauty</h3>
+                    <p>Rihanna's inclusive beauty brand offering 50 shades of foundation and revolutionary makeup for every skin tone.</p>
+                </div>
+            </div>
+            <div class="product-scroller-container">
+                <div class="scroller-header">
+                    <div class="scroller-arrows">
+                        <button class="arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+                        <button class="arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="product-scroller">
+                    <div class="product-card">
+                        <img src="../assets/images/products/tira_mascara.jpg" alt="Fenty Mascara">
+                        <div class="product-info">
+                            <span class="product-name">FENTY BEAUTY Hella Thicc Volumizing Mascara Mini (6.5ml)</span>
+                            <span class="product-desc">The ultimate long-lasting color and volume.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹2,500</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="../assets/images/products/pillow_talk_lipstick.avif" alt="Fenty Lipstick">
+                        <div class="product-info">
+                            <span class="product-name">FENTY BEAUTY Stunna Lip Paint - Uncensored (5ml)</span>
+                            <span class="product-desc">Long-wear, matte liquid lipstick in iconic red.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹2,200</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="../assets/images/products/easy_blur_foundation.avif" alt="Fenty Foundation">
+                        <div class="product-info">
+                            <span class="product-name">FENTY BEAUTY Pro Filt'r Soft Matte Foundation - 120 (32ml)</span>
+                            <span class="product-desc">Medium coverage foundation with a soft matte finish.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹3,200</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="../assets/images/products/lip_contour.jpg" alt="Fenty Contour">
+                        <div class="product-info">
+                            <span class="product-name">FENTY BEAUTY Match Stix Matte Skinstick - Amber (7.1g)</span>
+                            <span class="product-desc">Matte contour stick for precise sculpting.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹2,800</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="../assets/images/brands/fenty_1.jpg" alt="Fenty Beauty">
-                    <div class="card-content">
-                        <h3>Fenty Beauty</h3>
-                        <p>Beauty for all by Rihanna.</p>
-                    </div>
-                </a>
+        <!-- Benefit Cosmetics Section -->
+        <section class="product-category" id="benefit">
+            <div class="category-intro-card">
+                <img src="../assets/images/brands/benefit_1.jpg" alt="Benefit Cosmetics">
+                <div class="card-content">
+                    <h3>Benefit Cosmetics</h3>
+                    <p>The original brow experts with fun, easy-to-use products that make you look and feel your best.</p>
+                </div>
             </div>
-            <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="../assets/images/brands/benefit_1.jpg" alt="Benefit Cosmetics">
-                    <div class="card-content">
-                        <h3>Benefit Cosmetics</h3>
-                        <p>Laughter is the best cosmetic!</p>
+            <div class="product-scroller-container">
+                <div class="scroller-header">
+                    <div class="scroller-arrows">
+                        <button class="arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+                        <button class="arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                </a>
-            </div>
-            <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="../assets/images/brands/kiko_milano_1.jpg" alt="Kiko Milano">
-                    <div class="card-content">
-                        <h3>Kiko Milano</h3>
-                        <p>Italian professional cosmetics.</p>
+                </div>
+                <div class="product-scroller">
+                    <div class="product-card">
+                        <img src="../assets/images/categories/eyes/benefit_cosmetics.avif" alt="Benefit Brow">
+                        <div class="product-info">
+                            <span class="product-name">Benefit Cosmetics Precisely, My Brow Wax - 6 Cool Soft Black (5g)</span>
+                            <span class="product-desc">Shape and hold brows for a defined, lasting look.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹2,800</button>
+                        </div>
                     </div>
-                </a>
-            </div>
-            <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="../assets/images/brands/smashbox.jpg" alt="Smashbox">
-                     <div class="card-content">
-                        <h3>Smashbox</h3>
-                        <p>Studio-tested, longwearing makeup.</p>
+                    <div class="product-card">
+                        <img src="../assets/images/categories/eyes/boss_brow.avif" alt="Benefit Brow Pomade">
+                        <div class="product-info">
+                            <span class="product-name">Benefit Cosmetics Gimme Brow+ Volumizing Eyebrow Gel - 3 (3g)</span>
+                            <span class="product-desc">Volumizing eyebrow gel for fuller-looking brows.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹2,200</button>
+                        </div>
                     </div>
-                </a>
-            </div>
-             <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="../assets/images/sign_in/signup.png" alt="Kay Beauty">
-                    <div class="card-content">
-                        <h3>Kay Beauty</h3>
-                        <p>It's 'Kay to be you.</p>
+                    <div class="product-card">
+                        <img src="../assets/images/products/ilia.jpg" alt="Benefit Blush">
+                        <div class="product-info">
+                            <span class="product-name">Benefit Cosmetics Dandelion Brightening Face Powder (8g)</span>
+                            <span class="product-desc">Brightening face powder for a fresh, luminous glow.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹2,500</button>
+                        </div>
                     </div>
-                </a>
-            </div>
-             <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="../assets/images/categories/skin.jpg" alt="Rhode">
-                     <div class="card-content">
-                        <h3>Rhode</h3>
-                        <p>One of everything. Really good.</p>
+                    <div class="product-card">
+                        <img src="../assets/images/products/tira_mascara.jpg" alt="Benefit Mascara">
+                        <div class="product-info">
+                            <span class="product-name">Benefit Cosmetics They're Real! Lengthening Mascara (8.5g)</span>
+                            <span class="product-desc">Lengthening mascara for dramatic, long lashes.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹2,600</button>
+                        </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="https://via.placeholder.com/400x300/DB90BE/fff?text=Huda+Beauty" alt="Huda Beauty">
-                    <div class="card-content">
-                        <h3>Huda Beauty</h3>
-                        <p>Cult-favorite palettes and more.</p>
+        </section>
+
+        <!-- Kiko Milano Section -->
+        <section class="product-category" id="kiko">
+            <div class="category-intro-card">
+                <img src="../assets/images/brands/kiko_milano_1.jpg" alt="Kiko Milano">
+                <div class="card-content">
+                    <h3>Kiko Milano</h3>
+                    <p>Affordable luxury from Italy, bringing European elegance and quality to your beauty routine.</p>
+                </div>
+            </div>
+            <div class="product-scroller-container">
+                <div class="scroller-header">
+                    <div class="scroller-arrows">
+                        <button class="arrow left-arrow"><i class="fas fa-chevron-left"></i></button>
+                        <button class="arrow right-arrow"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                </a>
-            </div>
-            <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="https://via.placeholder.com/400x300/94426A/fff?text=M.A.C" alt="M.A.C">
-                    <div class="card-content">
-                        <h3>M.A.C</h3>
-                        <p>All ages, all races, all genders.</p>
+                </div>
+                <div class="product-scroller">
+                    <div class="product-card">
+                        <img src="../assets/images/categories/eyes/kiko_milano_lashes.avif" alt="Kiko Mascara">
+                        <div class="product-info">
+                            <span class="product-name">KIKO Milano New Volumeyes+ Mascara (11ml)</span>
+                            <span class="product-desc">Instant volume for bold, dramatic, show-stopping lashes.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹945</button>
+                        </div>
                     </div>
-                </a>
-            </div>
-            <div class="brand-card-simple fade-in">
-                 <a href="#">
-                    <img src="https://via.placeholder.com/400x300/F8BCC1/333?text=Sheglam" alt="Sheglam">
-                    <div class="card-content">
-                        <h3>Sheglam</h3>
-                        <p>Trendy and affordable beauty.</p>
+                    <div class="product-card">
+                        <img src="../assets/images/products/pillow_talk_lipstick.avif" alt="Kiko Lipstick">
+                        <div class="product-info">
+                            <span class="product-name">KIKO Milano Smart Fusion Lipstick - 404 (3.5g)</span>
+                            <span class="product-desc">Long-lasting lipstick with intense color payoff.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹1,200</button>
+                        </div>
                     </div>
-                </a>
-            </div>
-            <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="https://via.placeholder.com/400x300/620E2C/fff?text=Too+Faced" alt="Too Faced">
-                    <div class="card-content">
-                        <h3>Too Faced</h3>
-                        <p>Unapologetically glamorous.</p>
+                    <div class="product-card">
+                        <img src="../assets/images/products/easy_blur_foundation.avif" alt="Kiko Foundation">
+                        <div class="product-info">
+                            <span class="product-name">KIKO Milano Skin Tone Foundation - 30 (30ml)</span>
+                            <span class="product-desc">Lightweight foundation with natural coverage.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹1,800</button>
+                        </div>
                     </div>
-                </a>
-            </div>
-            <div class="brand-card-simple fade-in">
-                <a href="#">
-                    <img src="https://via.placeholder.com/400x300/3F0A29/fff?text=Maybelline" alt="Maybelline">
-                     <div class="card-content">
-                        <h3>Maybelline</h3>
-                        <p>Maybe she's born with it...</p>
+                    <div class="product-card">
+                        <img src="../assets/images/products/lip_contour.jpg" alt="Kiko Blush">
+                        <div class="product-info">
+                            <span class="product-name">KIKO Milano Smart Colour Blush - 01 (4.5g)</span>
+                            <span class="product-desc">Silky powder blush for a natural, healthy glow.</span>
+                            <button class="add-to-bag-btn">ADD TO BAG ₹1,100</button>
+                        </div>
                     </div>
-                </a>
+                </div>
             </div>
-             <div class="brand-card-simple fade-in">
-                 <a href="#">
-                    <img src="https://via.placeholder.com/400x300/cccccc/333?text=Dior" alt="Dior">
-                    <div class="card-content">
-                        <h3>Dior</h3>
-                        <p>Luxury beauty and fragrance.</p>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="brands-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Want to Partner with Us?</h2>
+                    <p>Are you a beauty brand that shares our values? We'd love to hear from you and explore potential partnerships.</p>
+                    <div class="cta-actions">
+                        <a href="partnerships.html" class="cta-btn primary">Become a Partner</a>
                     </div>
-                </a>
+                </div>
             </div>
-            
-             </div>
+        </section>
     </main>
 
     <footer class="main-footer">
@@ -223,7 +303,12 @@
                     <button type="submit" class="newsletter-btn">SEND</button>
                 </form>
                 <div class="social-links">
-                    <a href="#">IG</a> <a href="#">FB</a> <a href="#">TikTok</a> <a href="#">YT</a> <a href="#">Pin</a> <a href="#">TW</a>
+                    <a href="#">IG</a>
+                    <a href="#">FB</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">YT</a>
+                    <a href="#">Pin</a>
+                    <a href="#">TW</a>
                 </div>
             </div>
         </div>
@@ -235,6 +320,7 @@
         </div>
     </footer>
 
-    <script src="../js/global.js" defer></script>
-    <script src="../js/pages/brands.js" defer></script> </body>
-</html>
+    <script src="../js/global.js"></script>
+    <script src="../js/pages/brands.js"></script>
+</body>
+</html>\

@@ -3,15 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartEmptyMessage = document.getElementById("cart-empty-message");
     const subtotalElement = document.getElementById("summary-subtotal");
     const totalElement = document.getElementById("summary-total");
+    const taxElement = document.getElementById("summary-tax");
 
     function loadCartItems() {
         // Load the cart from localStorage
         const cart = JSON.parse(localStorage.getItem("mosaicCart")) || [];
 
-        // **THE FIX IS HERE:**
-        // We now check the cart length FIRST.
         if (cart.length === 0) {
-            // If it's empty, just show the "empty" message.
+            // If it's empty, show the "empty" message
             cartEmptyMessage.style.display = "block";
             
             // Clear any old items that might be showing
@@ -19,8 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             existingItems.forEach(item => item.remove());
 
             // Set totals to 0
-            subtotalElement.textContent = `₹0.00`;
-            totalElement.textContent = `₹0.00`;
+            updateTotals(0);
 
         } else {
             // If we have items, hide the "empty" message
@@ -33,19 +31,20 @@ document.addEventListener("DOMContentLoaded", () => {
             let currentSubtotal = 0;
 
             // Loop through each item in the cart and create HTML for it
-            cart.forEach(item => {
+            cart.forEach((item, index) => {
                 const itemSubtotal = item.price * item.quantity;
                 currentSubtotal += itemSubtotal;
 
                 const cartItemHTML = `
-                    <div class="cart-item" data-id="${item.id}">
+                    <div class="cart-item" data-id="${item.id}" style="animation-delay: ${index * 0.1}s">
                         <img src="${item.image}" alt="${item.name}">
                         <div class="item-details">
                             <span class="item-name">${item.name}</span>
                             <span class="item-price">₹${item.price.toFixed(2)}</span>
                         </div>
                         <div class="item-quantity">
-                            <input type="number" value="${item.quantity}" min="1" class="quantity-input">
+                            <label>Qty:</label>
+                            <input type="number" value="${item.quantity}" min="1" max="10" class="quantity-input">
                         </div>
                         <button class="item-remove-btn">Remove</button>
                     </div>
@@ -55,12 +54,20 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             // Update the totals in the summary box
-            subtotalElement.textContent = `₹${currentSubtotal.toFixed(2)}`;
-            totalElement.textContent = `₹${currentSubtotal.toFixed(2)}`; // Assuming free shipping
+            updateTotals(currentSubtotal);
         }
 
         // Add event listeners for the new "Remove" and "Quantity" inputs
         addCartEventListeners();
+    }
+
+    function updateTotals(subtotal) {
+        const tax = subtotal * 0.18; // 18% tax
+        const total = subtotal + tax;
+        
+        subtotalElement.textContent = `₹${subtotal.toFixed(2)}`;
+        taxElement.textContent = `₹${tax.toFixed(2)}`;
+        totalElement.textContent = `₹${total.toFixed(2)}`;
     }
 
     function addCartEventListeners() {
@@ -123,6 +130,122 @@ document.addEventListener("DOMContentLoaded", () => {
         loadCartItems();
     }
 
-    // --- This is the first thing that runs ---
+    // Add functionality for recommended products
+    function addRecommendedProductListeners() {
+        const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.recommended-card');
+                const productName = card.querySelector('h4').textContent;
+                const productPrice = card.querySelector('.recommended-price').textContent.replace('₹', '').replace(',', '');
+                const productImage = card.querySelector('img').src;
+                
+                // Add to cart
+                addToCart({
+                    id: Date.now().toString(),
+                    name: productName,
+                    price: parseFloat(productPrice),
+                    quantity: 1,
+                    image: productImage
+                });
+                
+                // Show success message
+                showNotification(`${productName} added to cart!`);
+            });
+        });
+    }
+
+    function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem("mosaicCart")) || [];
+        
+        // Check if product already exists
+        const existingItem = cart.find(item => item.name === product.name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push(product);
+        }
+        
+        localStorage.setItem("mosaicCart", JSON.stringify(cart));
+        loadCartItems(); // Refresh the cart display
+    }
+
+    function showNotification(message) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = 'cart-notification';
+        notification.textContent = message;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--twilight-lavender));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            font-weight: 600;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+
+    // Add checkout button functionality
+    function addCheckoutListener() {
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        if (checkoutBtn) {
+            checkoutBtn.addEventListener('click', function() {
+                const cart = JSON.parse(localStorage.getItem("mosaicCart")) || [];
+                if (cart.length === 0) {
+                    showNotification('Your cart is empty!');
+                    return;
+                }
+                
+                // For now, just show a message. In a real app, this would redirect to checkout
+                showNotification('Checkout functionality coming soon!');
+            });
+        }
+    }
+
+    // Add smooth animations for cart items
+    function addCartItemAnimations() {
+        const style = document.createElement('style');
+        style.textContent = `
+            .cart-item {
+                opacity: 0;
+                transform: translateY(20px);
+                animation: slideInUp 0.6s ease forwards;
+            }
+            
+            @keyframes slideInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // Initialize everything
     loadCartItems();
+    addRecommendedProductListeners();
+    addCheckoutListener();
+    addCartItemAnimations();
 });
