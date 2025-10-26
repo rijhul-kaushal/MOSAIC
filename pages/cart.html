@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorials - Page Under Construction</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/pages/tutorials.css">
+    <title>Your Cart - Mosaic Beauty</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="icon" href="/assets/images/logos/main-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="icon" href="../assets/images/logos/main-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -19,10 +19,13 @@
     <header class="main-header">
         <div class="header-top">
             <a href="../index.html" class="logo">
-                <img src="/assets/images/logos/main-logo.png" alt="Mosaic Logo" class="brand-logo">
+                <img src="../assets/images/logos/main-logo.png" alt="Mosaic Logo" class="brand-logo">
                 <h1>MOSAIC</h1>
             </a>
             <a href="cart.html" class="cart-icon">🛒</a>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
         </div>
         <nav class="navbar">
             <ul class="nav-links">
@@ -35,18 +38,43 @@
                 <li><a href="find-my-shade.html">Find My Shade</a></li>
                 <li><a href="rewards.html">Rewards</a></li>
                 <li><a href="play.html">Play</a></li>
-                <li><a href="/pages/about.html">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="login.html">Sign In</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="tutorial-main-content">
-        <div class="tutorial-image-container">
-            <img src="/assets/images/tutorials/construction.jpg" alt="Tutorials Page Under Construction">
+    <main class="cart-page-content">
+        <div class="cart-header">
+            <h2>My Cart</h2>
         </div>
-        <div class="construction-message">
-            <span class="rhode-font">page<br> under <br>construction.</span>
+        
+        <div class="cart-container">
+            <section class="cart-items-list" id="cart-items-container">
+                
+                <div class="cart-empty" id="cart-empty-message">
+                    <p>Your cart is empty.</p>
+                    <a href="../index.html" class="cta-button">Start Shopping</a>
+                </div>
+
+            </section>
+            
+            <section class="cart-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="summary-subtotal">₹0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>FREE</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="summary-total">₹0.00</span>
+                </div>
+                <button class="cta-button checkout-btn">Proceed to Checkout</button>
+            </section>
         </div>
     </main>
 
@@ -96,9 +124,9 @@
             </div>
             <div class="footer-column commitments">
                 <h3>COMMITMENTS</h3>
-                    <img src="/assets/images/footer/bunny.png" alt="For the Planet">
-                <img src="/assets/images/footer/earth.png" alt="Leaping Bunny Certified">
-                <img src="/assets/images/footer/accessibility.png" alt="Accessibility">
+                <img src="../assets/images/footer/bunny.png" alt="For the Planet">
+                <img src="../assets/images/footer/earth.png" alt="Leaping Bunny Certified">
+                <img src="../assets/images/footer/accessibility.png" alt="Accessibility">
             </div>
             <div class="footer-newsletter">
                 <h3>10% OFF YOUR FIRST ORDER</h3>
@@ -124,7 +152,9 @@
             </div>
         </div>
     </footer>
-
-    <script src="../js/global.js"></script>
-    </body>
+    
+    <script src="../js/global.js" defer></script>
+    <script src="../js/pages/cart.js" defer></script>
+    
+</body>
 </html>

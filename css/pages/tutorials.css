@@ -1,64 +1,223 @@
-/* Custom styles for the Tutorials page */
+/*
+    New Tutorials Page CSS inspired by image_3102bc.jpg
+*/
 
-.tutorial-main-content {
-    display: flex;
-    min-height: calc(100vh - 180px); /* Adjust based on your actual header/footer height */
-    background-color: var(--background-color); /* Matches the sign-in page background */
+.tutorials-page-main {
+    /* Reset section padding */
+    padding: 0; 
+    max-width: none; /* Allow full width sections */
 }
 
-.tutorial-image-container {
-    flex: 2; /* Takes up more space */
+/* --- Hero Section --- */
+.tutorial-hero {
+   
+    background-image: url('/assets/images/tutorials/strawberry.jpg'); /* Your provided image */
+
+    color: var(--dark-chocolate);
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    min-height: 40vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensures image doesn't overflow */
+    justify-content: center;
+}
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+    color: var(--dark-chocolate);
+    margin-bottom: var(--spacing-sm);
+}
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-md);
+    opacity: 0.9;
+}
+.hero-content .cta-button {
+    background-color: var(--dark-chocolate);
+    color: var(--light-text-color);
+    border-color: var(--dark-chocolate);
+}
+.hero-content .cta-button:hover {
+     background-color: transparent;
+    color: var(--dark-chocolate);
 }
 
-.tutorial-image-container img {
-    width: 500px;
-    height: 600px;
+
+/* --- Shared Section Styles --- */
+.popular-tutorials-section,
+.browse-category-section,
+.featured-techniques-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.popular-tutorials-section h2,
+.browse-category-section h2,
+.featured-techniques-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- Popular Tutorials Grid --- */
+.tutorials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.tutorial-card {
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    display: flex; /* Ensure content stretches */
+    flex-direction: column; /* Stack image and content */
+}
+.tutorial-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex; /* Allow flex properties */
+    flex-direction: column; /* Stack image and content */
+    height: 100%; /* Make link fill card */
+}
+.tutorial-card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.09);
+    transform: translateY(-4px);
+}
+
+.tutorial-card img {
+    width: 100%;
+    height: 180px; /* Fixed height */
+    object-fit: cover;
     display: block;
 }
 
-.construction-message {
-    flex: 1; /* Takes up less space than the image */
+.tutorial-card .card-content {
+    padding: 1rem 1.2rem;
+    flex-grow: 1; /* Allow content to fill remaining space */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+    flex-direction: column;
+}
+.tutorial-card .card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+.tutorial-card .card-content p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: auto; /* Pushes link to bottom */
+    padding-bottom: 0.5rem; /* Space above link */
+}
+.view-link {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-top: auto; /* Stick to bottom */
+}
+.tutorial-card:hover .view-link {
+    color: var(--accent-color);
+}
+
+
+/* --- Browse Category Section --- */
+.browse-category-section {
+    background-color: #fdfaf8; /* Light bg */
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.category-grid-simple {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.category-card-simple {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 1.5rem 1rem;
     text-align: center;
-    background-color: var(--background-color); /* Matches the sign-in page background */
-    color: var(--dark-chocolate); /* Example color, adjust as needed */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.category-card-simple:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    border-color: var(--middle-purple);
+    transform: translateY(-3px);
+}
+.category-card-simple h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+.category-card-simple h4 i { /* Style icons */
+    margin-right: 0.5rem;
+    color: var(--middle-purple);
 }
 
-.construction-message .rhode-font {
-    font-family: 'Inter', sans-serif; /* Use the Inter font, or your chosen rhode-like font */
-    font-size: clamp(4rem, 10vw, 8rem); /* Responsive font size */
-    font-weight: 700; /* Bold */
-    letter-spacing: 0.15em; /* Spacing between letters for aesthetic */
-    line-height: 1.2;
-    text-align: right;
+/* --- Featured Techniques Section --- */
+.techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.technique-card {
+     border-radius: 4px;
+    overflow: hidden;
+    position: relative; /* For overlay */
+}
+.technique-card img {
+     width: 100%;
+    height: 450px; 
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.technique-card:hover img {
+    transform: scale(1.05);
+}
+.technique-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    padding: 2rem 1.5rem 1rem;
+    color: var(--light-text-color);
+}
+.technique-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--light-text-color);
+    margin-bottom: 0.25rem;
+}
+.technique-content p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    opacity: 0.9;
 }
 
-/* Media query for smaller screens: stack content vertically */
-@media (max-width: 768px) {
-    .tutorial-main-content {
-        flex-direction: column;
-        min-height: auto; /* Allow content to dictate height on small screens */
-    }
-  
-    .tutorial-image-container img {
-        width: 100%;
-        height: auto; /* Allow image to scale with its aspect ratio */
-        object-fit: contain; /* This will show the entire image without cropping */
-    }
-    .construction-message {
-        flex: none; /* Remove flex sizing */
-        width: 100%;
-        padding: 1.5rem;
-    }
-    .construction-message .rhode-font {
-        font-size: clamp(1.5rem, 8vw, 2.5rem); /* Adjust font size for smaller screens */
-        letter-spacing: 0.1em;
-    }
+
+/* --- JS Fade-in Animation --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }

@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorials - Page Under Construction</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/pages/tutorials.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Makeup Tutorials - Mosaic Beauty</title>
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/tutorials.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="icon" href="/assets/images/logos/main-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="icon" href="../assets/images/logos/main-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <div class="top-promo-bar">
         MOSAIC | CLEAN, SKIN-CENTRIC BEAUTY&trade;
     </div>
+    
     <header class="main-header">
         <div class="header-top">
             <a href="../index.html" class="logo">
-                <img src="/assets/images/logos/main-logo.png" alt="Mosaic Logo" class="brand-logo">
+                <img src="../assets/images/logos/main-logo.png" alt="Mosaic Logo" class="brand-logo">
                 <h1>MOSAIC</h1>
             </a>
             <a href="cart.html" class="cart-icon">🛒</a>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
         </div>
         <nav class="navbar">
-            <ul class="nav-links">
+           <ul class="nav-links">
                 <li><a href="../index.html#bestsellers">Bestsellers</a></li>
                 <li><a href="categories.html">Categories</a></li>
                 <li><a href="brands.html">Brands</a></li>
@@ -35,19 +40,106 @@
                 <li><a href="find-my-shade.html">Find My Shade</a></li>
                 <li><a href="rewards.html">Rewards</a></li>
                 <li><a href="play.html">Play</a></li>
-                <li><a href="/pages/about.html">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="login.html">Sign In</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="tutorial-main-content">
-        <div class="tutorial-image-container">
-            <img src="/assets/images/tutorials/construction.jpg" alt="Tutorials Page Under Construction">
-        </div>
-        <div class="construction-message">
-            <span class="rhode-font">page<br> under <br>construction.</span>
-        </div>
+    <main class="tutorials-page-main">
+
+        <section class="tutorial-hero fade-in">
+            <div class="hero-content">
+                <h1>Learn & Glow</h1>
+                <p>Master makeup techniques with step-by-step guides from experts.</p>
+                <a href="#popular-tutorials" class="cta-button">Explore Tutorials</a>
+            </div>
+        </section>
+
+        <section class="popular-tutorials-section fade-in" id="popular-tutorials">
+            <h2>Most Popular Tutorials</h2>
+            <div class="tutorials-grid">
+                
+                <div class="tutorial-card">
+                    <a href="https://youtu.be/tH4I1fnYq8U?si=VCOgxxrlWg-iTOj2" target="_blank">
+                        <img src="/assets/images/tutorials/flow1.jpg" alt="Everyday Glow Tutorial">
+                        <div class="card-content">
+                            <h3>The 5-Minute Everyday Glow</h3>
+                            <p>Perfect for busy mornings.</p>
+                            <span class="view-link">Watch Now &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="tutorial-card">
+                    <a href="https://youtu.be/fLnKtPVpofM?si=jvRx-StqJGNjux63" target="_blank">
+                        <img src="/assets/images/tutorials/flow2.jpg" alt="Smoky Eye Tutorial">
+                         <div class="card-content">
+                            <h3>Classic Smoky Eye Masterclass</h3>
+                            <p>Achieve the perfect evening look.</p>
+                             <span class="view-link">Watch Now &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="tutorial-card">
+                     <a href="https://youtu.be/5dE-ictBl-0?si=IMN96TFbxn9a1CMK" target="_blank">
+                        <img src="/assets/images/tutorials/flow3.jpg" alt="Flawless Base Tutorial">
+                         <div class="card-content">
+                            <h3>How to Get a Flawless Base</h3>
+                            <p>Skin prep and foundation tips.</p>
+                             <span class="view-link">Watch Now &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                 
+
+            </div>
+        </section>
+
+        <section class="browse-category-section fade-in">
+            <h2>Browse by Category</h2>
+             <div class="category-grid-simple">
+                 <a href="https://www.youtube.com/watch?v=NpnUaz-GEqs&list=PLNycHren6XBa4gU1xximTE-Hdzn23l055&pp=0gcJCa4EOCosWNin" target="_blank" class="category-card-simple">
+                     <h4><i class="fas fa-eye"></i> Eye Looks</h4>
+                 </a>
+                  <a href="https://www.youtube.com/watch?v=FGz1_2AFS68&pp=ygUTbGlwIG1ha2V1cCBwbGF5bGlzdA%3D%3D" target="_blank" class="category-card-simple">
+                     <h4><i class="fas fa-smile"></i> Lip Techniques</h4>
+                 </a>
+                  <a href="https://www.youtube.com/watch?v=0aw8zGnFzYI&list=PLAxjcu6vw2_gzx0z7WzJb7ZRvyZT96Ul8" target="_blank" class="category-card-simple">
+                     <h4><i class="fas fa-user-circle"></i> Complexion</h4>
+                 </a>
+    
+                 <a href="https://www.youtube.com/watch?v=M77ylsZe-Eg&pp=ygUmY29tcGxleGlvbiBmb3VuZGFndGlvbiBtYWtldXAgcGxheWxpc3Q%3D" target="_blank" class="category-card-simple">
+                     <h4><i class="fas fa-star"></i> Beginner Friendly</h4>
+                 </a>
+                 <a href="https://www.youtube.com/watch?v=swXddlXXpZw&pp=ygUebWFrZXVwIGJydXNoZXMgbWFrZXVwIHBsYXlsaXN0" target="_blank" class="category-card-simple">
+                     <h4><i class="fas fa-brush"></i> Tools & Brushes</h4>
+                 </a>
+             </div>
+        </section>
+        
+        <section class="featured-techniques-section fade-in">
+            <h2>Featured Techniques</h2>
+            <div class="techniques-grid">
+                <div class="technique-card">
+                    <img src="/assets/images/tutorials/contouring.jpg" alt="Contouring">
+                    <div class="technique-content">
+                        <h3>Master Contouring</h3>
+                        <p>Sculpt and define like a pro.</p>
+                    </div>
+                </div>
+                 <div class="technique-card">
+                    <img src="/assets/images/tutorials/winged2.jpg" alt="Winged Liner">
+                    <div class="technique-content">
+                        <h3>Perfect Winged Liner</h3>
+                        <p>Tips for achieving sharp wings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
     </main>
 
     <footer class="main-footer">
@@ -96,9 +188,9 @@
             </div>
             <div class="footer-column commitments">
                 <h3>COMMITMENTS</h3>
-                    <img src="/assets/images/footer/bunny.png" alt="For the Planet">
-                <img src="/assets/images/footer/earth.png" alt="Leaping Bunny Certified">
-                <img src="/assets/images/footer/accessibility.png" alt="Accessibility">
+                <img src="../assets/images/footer/bunny.png" alt="For the Planet">
+                <img src="../assets/images/footer/earth.png" alt="Leaping Bunny Certified">
+                <img src="../assets/images/footer/accessibility.png" alt="Accessibility">
             </div>
             <div class="footer-newsletter">
                 <h3>10% OFF YOUR FIRST ORDER</h3>
@@ -108,12 +200,7 @@
                     <button type="submit" class="newsletter-btn">SEND</button>
                 </form>
                 <div class="social-links">
-                    <a href="#">IG</a>
-                    <a href="#">FB</a>
-                    <a href="#">TikTok</a>
-                    <a href="#">YT</a>
-                    <a href="#">Pin</a>
-                    <a href="#">TW</a>
+                    <a href="#">IG</a> <a href="#">FB</a> <a href="#">TikTok</a> <a href="#">YT</a> <a href="#">Pin</a> <a href="#">TW</a>
                 </div>
             </div>
         </div>
@@ -125,6 +212,6 @@
         </div>
     </footer>
 
-    <script src="../js/global.js"></script>
-    </body>
+    <script src="../js/global.js" defer></script>
+    <script src="../js/pages/tutorials.js" defer></script> </body>
 </html>
