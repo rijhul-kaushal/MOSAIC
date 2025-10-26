@@ -477,6 +477,32 @@
             </div>
         </div>
     </footer>
-    <script src="../js/global.js"></script>
+    
 </body>
+<script>
+            // Counter animation function
+            function animateCounter(element) {
+                const target = parseInt(element.getAttribute('data-target'));
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current);
+                }, 16);
+            }
+
+            // Start animation when page loads
+            document.addEventListener('DOMContentLoaded', function() {
+                const counters = document.querySelectorAll('.count');
+                counters.forEach(counter => {
+                    animateCounter(counter);
+                });
+            });
+        </script>
 </html>

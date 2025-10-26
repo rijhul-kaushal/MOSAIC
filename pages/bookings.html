@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorials - Page Under Construction</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/pages/tutorials.css">
+    <title>Book Appointments | Mosaic</title>
+    
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/bookings.css">
+    <link rel="icon" href="../assets/images/logos/main-logo.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="icon" href="/assets/images/logos/main-logo.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div class="top-promo-bar">
         MOSAIC | CLEAN, SKIN-CENTRIC BEAUTY&trade;
     </div>
+
     <header class="main-header">
         <div class="header-top">
             <a href="../index.html" class="logo">
-                <img src="/assets/images/logos/main-logo.png" alt="Mosaic Logo" class="brand-logo">
+                <img src="../assets/images/logos/main-logo.png" alt="Mosaic Logo" class="brand-logo">
                 <h1>MOSAIC</h1>
             </a>
             <a href="cart.html" class="cart-icon">🛒</a>
@@ -36,19 +38,241 @@
                 <li><a href="find-my-shade.html">Find My Shade</a></li>
                 <li><a href="rewards.html">Rewards</a></li>
                 <li><a href="play.html">Play</a></li>
-                <li><a href="/pages/about.html">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="login.html">Sign In</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="tutorial-main-content">
-        <div class="tutorial-image-container">
-            <img src="/assets/images/tutorials/construction.jpg" alt="Tutorials Page Under Construction">
-        </div>
-        <div class="construction-message">
-            <span class="rhode-font">page<br> under <br>construction.</span>
-        </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="bookings-hero">
+            <div class="hero-content">
+                <h1>Book Your Beauty Experience</h1>
+                <p>Professional beauty consultations and personalized makeup sessions</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                          <img src="/assets/images/bookings/bookings1.jpg" alt="Makeup Consultation">
+                        </div>
+                        <h3>Makeup Consultation</h3>
+                        <p>Personalized makeup advice and product recommendations tailored to your skin tone and preferences.</p>
+                        <div class="service-details">
+                            <span class="duration">60 minutes</span>
+                            <span class="price">$75</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                     <img src="/assets/images/bookings/bookings2.jpg" alt="Makeup Consultation">
+
+                        </div>
+                        <h3>Full Makeup Application</h3>
+                        <p>Complete makeup application for special events, photoshoots, or just to feel glamorous.</p>
+                        <div class="service-details">
+                            <span class="duration">90 minutes</span>
+                            <span class="price">$120</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                          <img src="/assets/images/bookings/bookings 3.jpg" alt="Makeup Consultation">
+                        </div>
+                        <h3>Skincare Analysis</h3>
+                        <p>Professional skin analysis and personalized skincare routine recommendations.</p>
+                        <div class="service-details">
+                            <span class="duration">45 minutes</span>
+                            <span class="price">$60</span>
+                        </div>
+                    </div>
+                    
+                
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Form Section -->
+        <section class="booking-form-section">
+            <div class="container">
+                <div class="form-container">
+                    <h2>Book Your Appointment</h2>
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service">Service</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="consultation">Makeup Consultation - $75</option>
+                                    <option value="application">Full Makeup Application - $120</option>
+                                    <option value="skincare">Skincare Analysis - $60</option>
+                                    <option value="tutorial">Makeup Tutorial - $150</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="time">Preferred Time</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Select time</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="duration">Duration</label>
+                                <select id="duration" name="duration" required>
+                                    <option value="">Select duration</option>
+                                    <option value="45">45 minutes</option>
+                                    <option value="60">60 minutes</option>
+                                    <option value="90">90 minutes</option>
+                                    <option value="120">120 minutes</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Special Requests or Notes</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Any specific requirements, allergies, or preferences..."></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" class="terms-link">Terms and Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Book Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expert Team Section -->
+        <section class="expert-team-section">
+            <div class="container">
+                <h2>Meet Our Beauty Experts</h2>
+                <div class="experts-grid">
+                    <div class="expert-card">
+                        <div class="expert-image">
+                            <img src="/assets/images/categories/complexion/comp1.jpg" alt="Sarah Johnson">
+                        </div>
+                        <h3>Sarah Johnson</h3>
+                        <p class="expert-title">Senior Makeup Artist</p>
+                        <p class="expert-bio">5+ years experience in bridal and editorial makeup. Specializes in natural and glam looks.</p>
+                        <div class="expert-specialties">
+                            <span class="specialty">Bridal</span>
+                            <span class="specialty">Editorial</span>
+                            <span class="specialty">Natural</span>
+                        </div>
+                    </div>
+                    
+                    <div class="expert-card">
+                        <div class="expert-image">
+                            <img src="/assets/images/categories/complexion/comp2.jpg" alt="Maria Rodriguez">
+                        </div>
+                        <h3>Maria Rodriguez</h3>
+                        <p class="expert-title">Skincare Specialist</p>
+                        <p class="expert-bio">Licensed esthetician with expertise in skin analysis and personalized skincare routines.</p>
+                        <div class="expert-specialties">
+                            <span class="specialty">Skincare</span>
+                            <span class="specialty">Analysis</span>
+                            <span class="specialty">Consultation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="expert-card">
+                        <div class="expert-image">
+                            <img src="/assets/images/categories/hair.jpg" alt="Emma Chen">
+                        </div>
+                        <h3>Emma Chen</h3>
+                        <p class="expert-title">Makeup Educator</p>
+                        <p class="expert-bio">Professional makeup instructor specializing in teaching advanced techniques and color theory.</p>
+                        <div class="expert-specialties">
+                            <span class="specialty">Education</span>
+                            <span class="specialty">Color Theory</span>
+                            <span class="specialty">Techniques</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>What should I bring to my appointment?</h3>
+                        <p>Just bring yourself! We provide all makeup products, tools, and skincare items. If you have specific products you'd like to use, feel free to bring them.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>How far in advance should I book?</h3>
+                        <p>We recommend booking at least 1-2 weeks in advance, especially for weekend appointments. For special events, book 3-4 weeks ahead.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Can I cancel or reschedule my appointment?</h3>
+                        <p>Yes! You can cancel or reschedule up to 24 hours before your appointment without any charges. Cancellations within 24 hours may incur a fee.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>Do you offer group bookings?</h3>
+                        <p>Absolutely! We offer special packages for bridal parties, group events, and celebrations. Contact us for custom group booking options.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer">
@@ -97,9 +321,9 @@
             </div>
             <div class="footer-column commitments">
                 <h3>COMMITMENTS</h3>
-                    <img src="/assets/images/footer/bunny.png" alt="For the Planet">
-                <img src="/assets/images/footer/earth.png" alt="Leaping Bunny Certified">
-                <img src="/assets/images/footer/accessibility.png" alt="Accessibility">
+                <img src="../assets/images/footer/bunny.png" alt="For the Planet">
+                <img src="../assets/images/footer/earth.png" alt="Leaping Bunny Certified">
+                <img src="../assets/images/footer/accessibility.png" alt="Accessibility">
             </div>
             <div class="footer-newsletter">
                 <h3>10% OFF YOUR FIRST ORDER</h3>
@@ -127,5 +351,6 @@
     </footer>
 
     <script src="../js/global.js"></script>
-    </body>
+    <script src="../js/pages/bookings.js"></script>
+</body>
 </html>
