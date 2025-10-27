@@ -3,526 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scratch & Win - Mosaic Beauty</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --dark-chocolate: #620E2C;
-            --brown-chocolate: #94426A;
-            --twilight-lavender: #DB90BE;
-            --spanish-pink: #F8BCC1;
-            --light-text: #F5F5F5;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('photo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 15px;
-            text-shadow: none;
-            letter-spacing: 1px;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #ffffff;
-            font-weight: 600;
-            text-shadow: none;
-            letter-spacing: 0.5px;
-        }
-
-        .game-container {
-            background: linear-gradient(135deg, rgba(116, 137, 159, 0.95), rgba(204, 231, 255, 0.95));
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-            max-width: 600px;
-            width: 100%;
-        }
-
-        .scratch-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .scratch-card {
-            position: relative;
-            width: 100%;
-            height: 120px;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-
-        .scratch-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-
-        .scratch-card.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .scratch-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #c6b1f1 25%, #D0D0D0 25%, #D0D0D0 50%, #B8B8B8 50%, #B8B8B8 75%, #D0D0D0 75%);
-            background-size: 15px 15px;
-            z-index: 2;
-            transition: opacity 0.5s ease;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        .scratch-overlay.scratched {
-            opacity: 0;
-        }
-
-        .prize-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #B3D9FF, #CCE7FF);
-            color: var(--dark-chocolate);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 10px;
-            z-index: 1;
-        }
-
-        .game-controls {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary {
-            background: #000033;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #000066;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-
-        .btn-secondary {
-            background: var(--twilight-lavender);
-            color: var(--dark-chocolate);
-        }
-
-        .btn-secondary:hover {
-            background: var(--spanish-pink);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .game-stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #000000;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #000000;
-        }
-
-        .instructions {
-            text-align: center;
-            color: #000000;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .popup.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .popup-content {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
-        }
-
-        .popup.show .popup-content {
-            transform: scale(1);
-        }
-
-        .popup h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--dark-chocolate);
-            margin-bottom: 15px;
-        }
-
-        .popup p {
-            font-size: 1.1rem;
-            color: var(--brown-chocolate);
-            margin-bottom: 20px;
-        }
-
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .game-container {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            .scratch-card {
-                height: 100px;
-            }
-            
-            .prize-content {
-                font-size: 0.8rem;
-            }
-            
-            .game-controls {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .game-stats {
-                gap: 20px;
-            }
-        }
-    </style>
+    <title>Play & Win - Mosaic Beauty</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/play.css">
+    <link rel="icon" href="../assets/images/logos/main-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <h1>Scratch & Win</h1>
-        <p>Scratch one card to reveal your beauty prize!</p>
+
+    <div class="top-promo-bar">
+        MOSAIC | CLEAN, SKIN-CENTRIC BEAUTY&trade;
     </div>
-
-    <div class="game-container">
-        <div class="scratch-grid" id="scratchGrid">
-            <!-- Cards will be generated by JavaScript -->
+    
+    <header class="main-header">
+        <div class="header-top">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logos/main-logo.png" alt="Mosaic Logo" class="brand-logo">
+                <h1>MOSAIC</h1>
+            </a>
+            <a href="cart.html" class="cart-icon">🛒</a>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                 <span class="hamburger"></span>
+            </button>
         </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="../index.html#bestsellers">Bestsellers</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="brands.html">Brands</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="bookings.html">Bookings</a></li>
+                <li><a href="findshade.html">Find My Shade</a></li>
+                <li><a href="rewards.html">Rewards</a></li>
+                <li><a href="play.html">Play</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="login.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="game-controls">
-            <button class="btn btn-primary" id="resetBtn">Reset Game</button>
-        </div>
+    <div class="page-background-wrapper"> <main>
+            <div class="play-content-wrapper">
+                <div class="scratch-game-container">
+                    <h1 class="game-title">Scratch & Win</h1> <p class="game-subtitle">Scratch one card to reveal your beauty prize!</p>
 
-        <div class="game-stats">
-            <div class="stat">
-                <div class="stat-label">Total Plays</div>
-                <div class="stat-value" id="totalPlays">0</div>
+                    <div class="cards-grid" id="cardsGrid">
+                    </div>
+
+                    <button id="resetGameBtn" class="reset-game-btn">RESET GAME</button>
+
+                    <div class="game-stats">
+                        <p>Total Plays: <span id="totalPlays">0</span></p>
+                        <p>Total Wins: <span id="totalWins">0</span></p>
+                    </div>
+
+                    <div id="prizeModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button">&times;</span>
+                            <h2 id="modalTitle"></h2>
+                            <p id="modalMessage"></p>
+                            <img id="prizeImage" src="" alt="Prize" style="max-width: 100%; height: auto; margin-top: 15px;">
+                            <button id="collectPrizeBtn" class="collect-prize-btn">COLLECT PRIZE</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-                <div class="stat-label">Total Wins</div>
-                <div class="stat-value" id="totalWins">0</div>
+        </main>
+    </div> <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>SHOP</h3>
+                <ul>
+                    <li><a href="../index.html#bestsellers">Bestsellers</a></li>
+                    <li><a href="#">Subscribe and Save</a></li>
+                    <li><a href="#">Rewards</a></li>
+                    <li><a href="#">Refer a Friend</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Find a Store</a></li>
+                    <li><a href="#">Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>HELP</h3>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Find My Shade</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Track Package</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>ABOUT</h3>
+                <ul>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Recycling</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                    <li><a href="#">Mosaic Icons</a></li>
+                    <li><a href="#">Clean at Mosaic</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>PROMOTION DETAILS</h3>
+                <ul>
+                    <li><a href="#">Mosaic Promotions</a></li>
+                    <li><a href="#">Student Discounts</a></li>
+                    <li><a href="#">Teacher Discounts</a></li>
+                    <li><a href="#">Win the Website</a></li>
+                </ul>
+            </div>
+            <div class="footer-column commitments">
+                <h3>COMMITMENTS</h3>
+                <img src="../assets/images/footer/bunny.png" alt="For the Planet">
+                <img src="../assets/images/footer/earth.png" alt="Leaping Bunny Certified">
+                <img src="../assets/images/footer/accessibility.png" alt="Accessibility">
+            </div>
+            <div class="footer-newsletter">
+                <h3>10% OFF YOUR FIRST ORDER</h3>
+                <p>Be the first to hear about product launches, exclusive sales, and more news.</p>
+                <form action="#" method="post" class="newsletter-form">
+                    <input type="email" placeholder="Email" required aria-label="Enter your email for newsletter">
+                    <button type="submit" class="newsletter-btn">SEND</button>
+                </form>
+                <div class="social-links">
+                    <a href="#">IG</a>
+                    <a href="#">FB</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">YT</a>
+                    <a href="#">Pin</a>
+                    <a href="#">TW</a>
+                </div>
             </div>
         </div>
-
-        <div class="instructions">
-            Click and drag to scratch away the silver overlay and reveal your prize!
+        <div class="copyright-bar">
+            <p>&copy; 2025 Mosaic Beauty All rights reserved</p>
+            <div class="legal-links">
+                <a href="#">Privacy</a> | <a href="#">Terms</a> | <a href="#">CA Privacy</a> | <a href="#">Do Not Sell or Share My Personal Information</a> | <a href="#">Accessibility</a> | <a href="#">Sitemap</a> | <a href="#">Warranty</a>
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <h2>Congratulations!</h2>
-            <p id="popupPrize">You won a prize!</p>
-            <button class="btn btn-primary" onclick="closePopup()">Continue</button>
-        </div>
-    </div>
-
-    <script>
-        class ScratchGame {
-            constructor() {
-                this.prizes = [
-                    "10% OFF Any Product",
-                    "Free Lipstick",
-                    "20% OFF Skincare",
-                    "Free Mascara",
-                    "15% OFF Makeup",
-                    "Free Foundation",
-                    "25% OFF Hair Care",
-                    "Free Eye Shadow",
-                    "30% OFF Bundle Deal"
-                ];
-                
-                this.totalPlays = parseInt(localStorage.getItem('totalPlays')) || 0;
-                this.totalWins = parseInt(localStorage.getItem('totalWins')) || 0;
-                this.gameActive = true;
-                this.scratchedCard = null;
-                
-                this.init();
-            }
-
-            init() {
-                this.updateStats();
-                this.createCards();
-                this.bindEvents();
-            }
-
-            createCards() {
-                const grid = document.getElementById('scratchGrid');
-                grid.innerHTML = '';
-                
-                // Shuffle prizes
-                const shuffledPrizes = [...this.prizes].sort(() => Math.random() - 0.5);
-                
-                for (let i = 0; i < 9; i++) {
-                    const card = document.createElement('div');
-                    card.className = 'scratch-card';
-                    card.dataset.index = i;
-                    
-                    const overlay = document.createElement('div');
-                    overlay.className = 'scratch-overlay';
-                    
-                    const prizeContent = document.createElement('div');
-                    prizeContent.className = 'prize-content';
-                    prizeContent.textContent = shuffledPrizes[i];
-                    
-                    card.appendChild(overlay);
-                    card.appendChild(prizeContent);
-                    grid.appendChild(card);
-                }
-            }
-
-            bindEvents() {
-                const cards = document.querySelectorAll('.scratch-card');
-                cards.forEach(card => {
-                    card.addEventListener('mousedown', (e) => this.startScratch(e));
-                    card.addEventListener('mousemove', (e) => this.scratch(e));
-                    card.addEventListener('mouseup', () => this.endScratch());
-                    card.addEventListener('mouseleave', () => this.endScratch());
-                    
-                    // Touch events for mobile
-                    card.addEventListener('touchstart', (e) => this.startScratch(e));
-                    card.addEventListener('touchmove', (e) => this.scratch(e));
-                    card.addEventListener('touchend', () => this.endScratch());
-                });
-
-                document.getElementById('resetBtn').addEventListener('click', () => this.resetGame());
-            }
-
-            startScratch(e) {
-                if (!this.gameActive) return;
-                
-                e.preventDefault();
-                this.isScratching = true;
-                this.scratchedCard = e.currentTarget;
-                this.scratch(e);
-            }
-
-            scratch(e) {
-                if (!this.isScratching || !this.scratchedCard) return;
-                
-                e.preventDefault();
-                
-                const rect = this.scratchedCard.getBoundingClientRect();
-                const x = (e.clientX || e.touches[0].clientX) - rect.left;
-                const y = (e.clientY || e.touches[0].clientY) - rect.top;
-                
-                const overlay = this.scratchedCard.querySelector('.scratch-overlay');
-                
-                // Create multiple scratch marks for better effect
-                for (let i = 0; i < 3; i++) {
-                    const scratchArea = document.createElement('div');
-                    const offsetX = (Math.random() - 0.5) * 15;
-                    const offsetY = (Math.random() - 0.5) * 15;
-                    
-                    scratchArea.style.position = 'absolute';
-                    scratchArea.style.left = (x + offsetX) + 'px';
-                    scratchArea.style.top = (y + offsetY) + 'px';
-                    scratchArea.style.width = (15 + Math.random() * 10) + 'px';
-                    scratchArea.style.height = (15 + Math.random() * 10) + 'px';
-                    scratchArea.style.borderRadius = '50%';
-                    scratchArea.style.background = 'transparent';
-                    scratchArea.style.pointerEvents = 'none';
-                    scratchArea.style.opacity = '0.8';
-                    
-                    overlay.appendChild(scratchArea);
-                }
-                
-                // Check if enough is scratched
-                setTimeout(() => this.checkScratchProgress(), 50);
-            }
-
-            endScratch() {
-                this.isScratching = false;
-            }
-
-            checkScratchProgress() {
-                if (!this.scratchedCard) return;
-                
-                const overlay = this.scratchedCard.querySelector('.scratch-overlay');
-                const scratchedAreas = overlay.children.length;
-                
-                // More accurate progress calculation
-                // Each scratch creates 3 areas, so we need fewer total scratches
-                const scratchedPercentage = Math.min(scratchedAreas * 0.08, 1);
-                
-                if (scratchedPercentage >= 0.4) {
-                    this.revealPrize();
-                }
-            }
-
-            revealPrize() {
-                if (!this.scratchedCard) return;
-                
-                const overlay = this.scratchedCard.querySelector('.scratch-overlay');
-                overlay.classList.add('scratched');
-                
-                const prizeText = this.scratchedCard.querySelector('.prize-content').textContent;
-                
-                // Disable all other cards
-                const allCards = document.querySelectorAll('.scratch-card');
-                allCards.forEach(card => {
-                    if (card !== this.scratchedCard) {
-                        card.classList.add('disabled');
-                    }
-                });
-                
-                this.gameActive = false;
-                this.totalPlays++;
-                this.totalWins++;
-                this.updateStats();
-                this.saveStats();
-                
-                // Show popup
-                setTimeout(() => {
-                    this.showPopup(prizeText);
-                }, 500);
-            }
-
-            showPopup(prize) {
-                document.getElementById('popupPrize').textContent = prize;
-                document.getElementById('popup').classList.add('show');
-            }
-
-
-            resetGame() {
-                this.gameActive = true;
-                this.scratchedCard = null;
-                this.createCards();
-                this.bindEvents();
-            }
-
-            updateStats() {
-                document.getElementById('totalPlays').textContent = this.totalPlays;
-                document.getElementById('totalWins').textContent = this.totalWins;
-            }
-
-            saveStats() {
-                localStorage.setItem('totalPlays', this.totalPlays);
-                localStorage.setItem('totalWins', this.totalWins);
-            }
-        }
-
-        function closePopup() {
-            document.getElementById('popup').classList.remove('show');
-        }
-
-        // Initialize game when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            new ScratchGame();
-        });
-    </script>
+    <script src="../js/global.js" defer></script> 
+    <script src="../js/pages/play.js" defer></script>
 </body>
 </html>
