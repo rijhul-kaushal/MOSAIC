@@ -53,10 +53,7 @@ function goBack() {
 
 function finishSelection() {
   showNotification("Thank you! Your perfect shade has been found 💕"); // Use showNotification
-  // Optional: Redirect after notification shows
-  // setTimeout(() => {
-  //     window.location.href = "../index.html"; // Redirect to homepage for example
-  // }, 2000); 
+  setTimeout(() => { window.location.href = '../index.html'; }, 2000); // Redirects to index.html after 2 seconds
 }
 
 // --- ADDED: showNotification Function --- (Assuming it might be needed here too)
