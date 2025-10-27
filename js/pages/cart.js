@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 
                 // Show success message
-                showNotification(`${productName} added to cart!`);
+                //showNotification(`${productName} added to cart!`);
             });
         });
     }

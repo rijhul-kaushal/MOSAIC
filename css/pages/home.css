@@ -253,3 +253,33 @@
     padding: 0;
     width: auto;
 }
+/* --- Styling for Add to Bag Buttons in Bestsellers --- */
+.bestsellers-section .product-card .add-to-bag-btn {
+    display: inline-block; /* Make it behave like a button */
+    padding: 0.75rem 1.5rem; /* Add padding inside the button */
+    margin-top: 1rem; /* Add space above the button */
+    background-color: var(--primary-color); /* Use your main dark color */
+    color: var(--light-text-color); /* White text */
+    border: 1px solid var(--primary-color);
+    border-radius: 4px; /* Optional: slightly rounded corners */
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase; /* Make text uppercase */
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    width: auto; /* Allow button to size based on text */
+    max-width: 90%; /* Prevent it from getting too wide */
+}
+
+.bestsellers-section .product-card .add-to-bag-btn:hover {
+    background-color: var(--twilight-lavender); /* Lighter color on hover */
+    border-color: var(--twilight-lavender);
+    color: var(--light-text-color);
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Remove underline from previous .cta-link style if it's still affecting */
+.bestsellers-section .product-card .add-to-bag-btn {
+    text-decoration: none;
+}
