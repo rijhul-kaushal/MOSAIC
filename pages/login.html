@@ -20,7 +20,7 @@
 
         .auth-container {
             display: flex;
-            min-height: calc(100vh - 105px - 2rem);
+            min-height: calc(100vh - 105px - 2rem); /* Adjust 105px based on actual header height */
         }
 
         .auth-image-panel {
@@ -144,6 +144,13 @@
             }
             .auth-image-panel {
                 min-height: 250px;
+                background-size: cover; /* Change to cover for smaller screens */
+            }
+            .auth-form-panel {
+                 padding: var(--spacing-sm); /* Reduce padding on smaller screens */
+            }
+             .auth-card {
+                max-width: none; /* Allow card to take full width */
             }
         }
     </style>
@@ -160,6 +167,9 @@
                 <h1>MOSAIC</h1>
             </a>
             <a href="cart.html" class="cart-icon">🛒</a>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                 <span class="hamburger"></span>
+            </button>
         </div>
         <nav class="navbar">
             <ul class="nav-links">
@@ -169,10 +179,10 @@
                 <li><a href="men.html">Men</a></li>
                 <li><a href="tutorials.html">Tutorials</a></li>
                 <li><a href="bookings.html">Bookings</a></li>
-                <li><a href="find-my-shade.html">Find My Shade</a></li>
+                <li><a href="findshade.html">Find My Shade</a></li>
                 <li><a href="rewards.html">Rewards</a></li>
                 <li><a href="play.html">Play</a></li>
-                <li><a href="/pages/about.html">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="login.html">Sign In</a></li>
             </ul>
         </nav>
@@ -243,7 +253,7 @@
             <div class="footer-column">
                 <h3>SHOP</h3>
                 <ul>
-                    <li><a href="#bestsellers">Bestsellers</a></li>
+                    <li><a href="../index.html#bestsellers">Bestsellers</a></li>
                     <li><a href="#">Subscribe and Save</a></li>
                     <li><a href="#">Rewards</a></li>
                     <li><a href="#">Refer a Friend</a></li>
@@ -313,6 +323,7 @@
         </div>
     </footer>
 
+    <script src="../js/global.js" defer></script> 
     <script>
         const loginFormSection = document.getElementById('loginFormSection');
         const signupFormSection = document.getElementById('signupForm');
@@ -334,6 +345,46 @@
             authImagePanel.style.backgroundImage = "url('../assets/images/sign_in/signin.png')";
         });
 
+        // --- ADDED: showNotification Function ---
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'cart-notification'; // Reusing class name
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--primary-color, #3F0A29), var(--twilight-lavender, #94426A)); /* Added fallbacks */
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                font-weight: 600;
+                transform: translateX(120%); /* Start off-screen */
+                transition: transform 0.4s ease-in-out;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100); 
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(120%)'; // Slide out
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 400); // Match transition duration
+            }, 3000); 
+        }
+        // --- END: showNotification Function ---
+
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const usernameInput = document.getElementById('username').value;
@@ -346,8 +397,12 @@
 
             // Check if the entered credentials match the stored ones
             if (usernameInput === storedUsername && passwordInput === storedPassword) {
-                alert('Login successful! You will now be redirected to the homepage.');
-                window.location.href = '../index.html';
+                // CHANGED: Use notification instead of alert
+                showNotification('Login successful! Redirecting...'); 
+                // Redirect after a short delay to allow notification to show
+                setTimeout(() => {
+                    window.location.href = '../index.html';
+                }, 1500); 
             } else {
                 errorMessage.style.display = 'block';
             }
@@ -373,12 +428,15 @@
             localStorage.setItem('userEmail', emailInput);
             localStorage.setItem('userPassword', passwordInput);
 
-            alert('Account created successfully! You can now log in with your new credentials.');
+            // CHANGED: Use notification instead of alert
+            showNotification('Account created successfully! You can now log in.');
             
-            // Switch back to the login form
-            signupFormSection.style.display = 'none';
-            loginFormSection.style.display = 'block';
-            authImagePanel.style.backgroundImage = "url('../assets/images/sign_in/signin.png')";
+            // Switch back to the login form after a short delay
+            setTimeout(() => {
+                signupFormSection.style.display = 'none';
+                loginFormSection.style.display = 'block';
+                authImagePanel.style.backgroundImage = "url('../assets/images/sign_in/signin.png')";
+            }, 500); // Delay slightly longer than notification animation
         });
 
         // Real-time password confirmation validation

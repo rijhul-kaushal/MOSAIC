@@ -438,3 +438,29 @@ a {
     margin: 0 0.5rem;
   }
 }
+/* Styling for Add to Bag Buttons on Men's Page */
+.men-page-content .product-card .add-to-bag-btn {
+    display: inline-block; 
+    padding: 0.75rem 1.5rem; 
+    margin-top: 1rem; 
+    background-color: var(--primary-color); /* Use your theme's primary button color */
+    color: var(--light-text-color); /* White text */
+    border: 1px solid var(--primary-color);
+    border-radius: 4px; 
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    width: auto; 
+    max-width: 90%; 
+    text-decoration: none; /* Remove any underlines */
+}
+
+.men-page-content .product-card .add-to-bag-btn:hover {
+    background-color: var(--twilight-lavender); /* Lighter hover color */
+    border-color: var(--twilight-lavender);
+    color: var(--light-text-color);
+    transform: translateY(-2px); 
+}
