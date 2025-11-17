@@ -1,6 +1,6 @@
 
 
-# 💄 Mosaic - Clean, Skin-Centric Beauty™
+# Mosaic - Clean, Skin-Centric Beauty™
 
 Mosaic is a modern React-based e-commerce platform for a clean beauty brand. This project is a dynamic single-page application (SPA) built with Vite, featuring a global shopping cart, dynamic routing, and a unique hybrid architecture designed to migrate a legacy HTML website into a full React application, page by page.
 
