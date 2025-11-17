@@ -260,3 +260,9 @@
     line-height: 1.2em; /* Vertically center number */
     font-size: 0.8em; /* Size of the number circle */
 }
+.tutorial-card iframe {
+    width: 100%;
+    height: 180px; /* Matches the fixed height of your old img style */
+    display: block;
+    border: none; /* Removes the default iframe border */
+}

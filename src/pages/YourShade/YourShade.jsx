@@ -128,7 +128,7 @@ const YourShade = () => {
     };
   }, [navigate]);
 
-  return <main ref={pageRef} dangerouslySetInnerHTML={{ __html: content }} />;
+  return <main ref={pageRef} className="shade-page-background" dangerouslySetInnerHTML={{ __html: content }} />;
 };
 
 export default YourShade;
