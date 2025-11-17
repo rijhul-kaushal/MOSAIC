@@ -1,0 +1,275 @@
+/*
+ * This custom CSS overrides the global styles to create a full-width layout.
+ */
+
+/* Override global styles for a full-width header */
+.main-header {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.main-header .header-top,
+.main-header .navbar {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Set sections to full width */
+.counters,
+.gallery,
+.mission,
+.cta,
+.parallax,
+.parallax2 {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.counters .counter,
+.gallery .grid,
+.mission .cards,
+.cta .content,
+.parallax .overlay,
+.parallax2 .overlay {
+   padding-left: 10%;
+   padding-right: 10%;
+}
+
+/* Your custom styles for the parallax and other sections */
+.parallax {
+  background-image: url("/assets/images/about_us/about.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 56vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: #0c0645;
+}
+
+.parallax::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(221, 142, 142, 0.234);
+}
+
+.parallax .overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.parallax h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  margin-bottom: 10px;
+}
+
+.parallax p {
+  font-size: 1.2rem;
+}
+.counters {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Adjust this to control spacing between the columns */
+  padding: 60px 10%;
+  text-align: center;
+  background-color: #dbb58418;
+}
+
+.counter p {
+  margin-top: 5px; /* Reduces vertical space between the number and text */
+  word-spacing: -2px; /* Reduces space between words on the same line */
+  line-height: 1.2; /* Tightens the line spacing */
+}
+
+.counter h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #222;
+}
+.counter {
+  flex-basis: 200px; /* This sets a fixed width for each column */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Our Story Parallax */
+.parallax2 {
+  background-image: url("/assets/images/about_us/story.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.parallax2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(246, 150, 182, 0.741);
+}
+
+.parallax2 .overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 80px 10%;
+  color: #5e0446;
+}
+
+.parallax2 .about .text {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.parallax2 .about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #140b54;
+}
+
+.parallax2 .about p,
+.parallax2 .about .quote {
+  color: #05063c;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.parallax2 .about .quote {
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Gallery */
+.gallery {
+  padding: 60px 10%;
+  text-align: center;
+  background-color: #dbb58418;
+}
+
+.gallery h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Mission Flip Cards */
+.mission {
+  padding: 60px 10%;
+  text-align: center;
+  background-image: url("/assets/images/about_us/background_gallery.jpg");
+}
+
+.mission h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.mission .cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.card .front, .card .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: transform 0.6s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  font-size: 1rem;
+}
+
+.card .front {
+  background: #e9b6d9;
+  color: #333;
+}
+
+.card .back {
+  background: #222;
+  color: #eff6c9;
+  transform: rotateY(180deg);
+  padding: 10px;
+  text-align: center;
+}
+
+.card:hover .front {
+  transform: rotateY(180deg);
+}
+
+.card:hover .back {
+  transform: rotateY(360deg);
+}
+
+/* CTA */
+.cta {
+  padding: 80px 10%;
+  text-align: center;
+  background: #f7f7f7;
+}
+
+.cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #222;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #444;
+}

@@ -1,0 +1,745 @@
+/*
+    Rewards Page Styles for Mosaic Project
+    Loyalty program and rewards system styling
+*/
+
+/* Override global styles for full-width sections */
+.rewards-hero,
+.referral-program {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Hero Section */
+.rewards-hero {
+    background: linear-gradient(135deg, var(--dark-chocolate) 0%, var(--twilight-lavender) 50%, var(--middle-purple) 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-text-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.rewards-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/assets/images/about_us/background_gallery.jpg') center/cover;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-text-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--spanish-pink);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Rewards Overview */
+.rewards-overview {
+    padding: 5rem 0;
+    background: #fafafa;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.overview-card {
+    background: var(--light-text-color);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.overview-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--middle-purple), var(--spanish-pink));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2.5rem;
+    color: var(--light-text-color);
+}
+
+.overview-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.overview-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.points-example {
+    background: var(--spanish-pink);
+    color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Membership Tiers */
+.membership-tiers {
+    padding: 5rem 0;
+    background: var(--light-text-color);
+}
+
+.membership-tiers h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tier-card {
+    background: #fafafa;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.tier-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.tier-card.current {
+    border-color: var(--middle-purple);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    transform: scale(1.05);
+}
+
+.tier-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--middle-purple);
+    color: var(--light-text-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tier-header {
+    margin-bottom: 2rem;
+}
+
+.tier-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--light-text-color);
+}
+
+.bronze .tier-icon {
+    background: linear-gradient(135deg, #cd7f32, #b8860b);
+}
+
+.silver .tier-icon {
+    background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
+}
+
+.gold .tier-icon {
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+}
+
+.tier-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.tier-requirement {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.tier-benefits {
+    list-style: none;
+    text-align: left;
+}
+
+.tier-benefits li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.tier-benefits i {
+    color: var(--middle-purple);
+    margin-right: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Available Rewards */
+.available-rewards {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.available-rewards h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.rewards-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--light-text-color);
+    border: 2px solid #e0e0e0;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #666;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--middle-purple);
+    border-color: var(--middle-purple);
+    color: var(--light-text-color);
+}
+
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.reward-card {
+    background: var(--light-text-color);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.reward-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.reward-image {
+    height: 120px;
+    background: linear-gradient(135deg, var(--spanish-pink), var(--middle-purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--light-text-color);
+}
+
+.reward-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reward-content {
+    padding: 1.5rem;
+}
+
+.reward-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.reward-content p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.reward-cost {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--middle-purple);
+    margin-bottom: 1rem;
+}
+
+.redeem-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--twilight-lavender));
+    color: var(--light-text-color);
+    border: none;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.redeem-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(62, 14, 44, 0.3);
+}
+
+.redeem-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* How to Earn Points */
+.earn-points {
+    padding: 5rem 0;
+    background: var(--light-text-color);
+}
+
+.earn-points h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.earn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.earn-card {
+    background: #fafafa;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.earn-card:hover {
+    transform: translateY(-5px);
+}
+
+.earn-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--middle-purple), var(--spanish-pink));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--light-text-color);
+}
+
+.earn-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.earn-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.earn-example {
+    background: var(--spanish-pink);
+    color: var(--primary-color);
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Referral Program */
+.referral-program {
+    background: linear-gradient(135deg, var(--dark-chocolate) 0%, var(--twilight-lavender) 100%);
+    padding: 5rem 0;
+    color: var(--light-text-color);
+}
+
+.referral-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.referral-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-text-color);
+}
+
+.referral-content p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.referral-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.referral-stat {
+    text-align: center;
+}
+
+.referral-stat .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--spanish-pink);
+    margin-bottom: 0.5rem;
+}
+
+.referral-stat .stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.referral-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.referral-btn {
+    background: var(--light-text-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.referral-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.referral-code {
+    text-align: center;
+}
+
+.referral-code label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.code-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.code-display span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.copy-btn {
+    background: var(--spanish-pink);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: var(--middle-purple);
+    color: var(--light-text-color);
+}
+
+/* Recent Activity */
+.recent-activity {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.recent-activity h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.activity-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--light-text-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateX(5px);
+}
+
+.activity-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    flex-shrink: 0;
+}
+
+.activity-icon.earned {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+.activity-icon.redeemed {
+    background: linear-gradient(135deg, var(--middle-purple), var(--spanish-pink));
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.activity-content p {
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.activity-points {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+}
+
+.activity-points:contains("+") {
+    color: #27ae60;
+}
+
+.activity-points:contains("-") {
+    color: #e74c3c;
+}
+
+.activity-date {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .overview-grid,
+    .tiers-grid,
+    .rewards-grid,
+    .earn-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .referral-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .referral-actions {
+        flex-direction: column;
+    }
+    
+    .code-display {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .overview-card,
+    .tier-card,
+    .earn-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .reward-card {
+        margin: 0 0.5rem;
+    }
+    
+    .referral-content h2 {
+        font-size: 2rem;
+    }
+}

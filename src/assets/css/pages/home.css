@@ -1,0 +1,291 @@
+/*
+    Homepage Specific Styles
+    Includes:
+    - Full-screen Hero section with video background
+    - Bestsellers section styling
+    - Brands section styling
+*/
+
+/* Hero Section */
+.hero-section {
+    /* These three lines handle the perfect centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* These lines set up the container */
+    position: relative;
+    height: calc(100vh - 105px); 
+    width: 100%;
+    padding: 0;
+    max-width: none;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; 
+}
+
+/* This is the dark overlay for better text readability */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative; /* This makes z-index work */
+    z-index: 3;         /* This keeps the text on top */
+    color: var(--light-text-color);
+}
+
+.hero-content h2 {
+    /* Decrease the first two numbers to make the font smaller */
+    font-size: clamp(2rem, 2.5vw, 4rem); 
+    color: black;
+    
+    margin-bottom: 1.5rem;
+    font-weight: 200;
+    opacity: 1.8;
+}
+
+/* This styles the "Shop Bestsellers" button */
+
+
+/* In home.css */
+.hero-content .cta-button {
+    /* Change this to a solid color like #fff or var(--spanish-pink) */
+    background-color: transparent; 
+    
+    /* Change this to your desired text color */
+    color: black;
+    border: 1px solid var(--primary-color);
+    padding: 0.75rem 2rem;
+    font-weight: bold;
+    backdrop-filter: blur(2px);
+    opacity:1;
+}
+
+.hero-content .cta-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Promo & Brands Section */
+.promo-brand-section {
+    padding-top: 0;
+    text-align: center;
+    /* These 3 lines let the section break out of the main container */
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.promo-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--spanish-pink);
+    flex-wrap: wrap;
+    /* These 2 lines make the banner stretch from edge to edge */
+  
+}
+
+.promo-text {
+    font-weight: bold;
+    color: var(--light-text-color);
+    text-align: right;
+}
+
+.discount-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: rgb(245, 239, 240);
+    display: block;
+}
+
+.promo-text p {
+    margin: 0;
+    padding-top: 0.25rem;
+    font-size: 1rem;
+}
+
+.promo-code-btn {
+    background-color: var(--light-text-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 1rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: var(--spacing-md);
+    text-align: center;
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--spacing-md);
+}
+
+.brand-card {
+    border: 1px solid #eee;
+    padding: 1rem;
+    text-align: left;
+}
+
+.brand-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.brand-card h3 {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.brand-shop-link {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.brand-shop-link:hover {
+    color: var(--accent-color);
+}
+
+/* Bestsellers Section */
+.bestsellers-section {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: var(--spacing-sm);
+}
+
+.product-card h3 {
+    margin-top: 0;
+    font-weight: 500;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.product-card .cta-link {
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.product-card .cta-link:hover {
+    color: var(--accent-color);
+}
+/* Find this rule in css/pages/home.css */
+
+.join-our-team-section {
+    /* --- Full-Width Stripe Styles --- */
+    max-width: none;
+    margin: 0;
+
+    /* ADD THIS LINE to create space below the section */
+    margin-bottom: var(--spacing-lg); /* You can adjust the size (lg, md, sm) */
+
+    /* --- Background Image Styles --- */
+    background-image: url('/assets/images/partnerships/index_partnerships.jpg');
+    background-size: cover; 
+    background-position: center; 
+
+    /* --- Layout Styles --- */
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+}
+.team-content {
+    /* The inner content is now just a transparent wrapper */
+    padding: 0;
+    width: auto;
+}
+/* --- Styling for Add to Bag Buttons in Bestsellers --- */
+/* This block adds the alignment fix for the description */
+.bestsellers-section .product-card .product-desc {
+    font-size: 0.9rem;
+    color: #666;
+    flex-grow: 1; /* <-- ADDED: This makes the description grow */
+}
+
+.bestsellers-section .product-card .add-to-bag-btn {
+    display: inline-block; 
+    padding: 0.75rem 1.5rem; 
+    margin-top: auto; /* <-- CHANGED: This pushes the button to the bottom */
+    background-color: var(--primary-color); 
+    color: var(--light-text-color); 
+    border: 1px solid var(--primary-color);
+    border-radius: 4px; 
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    width: auto; 
+    max-width: 90%; 
+}
+.bestsellers-section .product-card .add-to-bag-btn:hover {
+    background-color: var(--twilight-lavender); /* Lighter color on hover */
+    border-color: var(--twilight-lavender);
+    color: var(--light-text-color);
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Remove underline from previous .cta-link style if it's still affecting */
+.bestsellers-section .product-card .add-to-bag-btn {
+    text-decoration: none;
+}

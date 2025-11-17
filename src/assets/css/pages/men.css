@@ -1,0 +1,339 @@
+/* --- MEN'S PAGE SPECIFIC STYLES --- */
+
+/* Absolutely Full-Screen Hero Image Section */
+.hero-image-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/images/men/main.jpg');
+  background-size: cover; /* This makes the image cover the entire container */
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(3, 1, 30, 0.804);
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Content Wrapper to push content below the fixed hero image */
+.page-content-wrapper {
+  margin-top: 100vh;
+  position: relative;
+  z-index: 1;
+  background-color: var(--background-color);
+}
+
+.men-page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+
+.product-category {
+  margin-bottom: var(--spacing-lg);
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.category-header h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--american-blue);
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+}
+
+.category-header h2::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 3px;
+  background-color: var(--ube);
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  transition: width 0.3s ease-in-out;
+}
+
+.product-category:hover .category-header h2::after {
+  width: 100%;
+  left: 0;
+}
+
+.scroller-arrows .arrow {
+  background-color: transparent;
+  border: 1px solid var(--cool-grey);
+  color: var(--cool-grey);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.scroller-arrows .arrow:hover {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.product-scroller {
+  display: flex;
+  flex-wrap: nowrap; /* Keeps all products in a single row */
+  align-items: stretch; /* This is the key property */
+  gap: 1.5rem;
+  overflow-x: scroll;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.product-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Updated product-card style */
+.product-card {
+  flex: 0 0 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1; /* This makes the info section expand to fill available space */
+  justify-content: flex-end; /* This pushes the shop link to the bottom */
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-desc {
+  font-size: 0.85rem;
+  color: rgb(92, 3, 92);
+  margin-bottom: 0.75rem;
+  font-style: normal;
+}
+
+.shop-link {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  border-radius: 0px;
+  color: white;
+  background-image: linear-gradient(45deg, #8387C3, #3A3E6C);
+  transition: all 0.3s ease-in-out;
+  margin-top: auto; /* A good trick for pushing the button to the bottom */
+}
+
+.shop-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(58, 77, 108, 0.6);
+  background-image: linear-gradient(45deg, #3A3E6C, #888fe9);
+}
+
+/* Footer */
+.main-footer {
+  background-color: var(--footer-bg-color);
+  color: var(--footer-text-color);
+  padding: 4rem var(--spacing-md);
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1 1 150px;
+}
+
+.footer-column h3 {
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--footer-text-color);
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  color: var(--footer-text-color);
+  font-weight: 400;
+}
+
+.footer-newsletter {
+  flex: 1 1 300px;
+}
+
+.footer-newsletter h3 {
+  color: var(--footer-text-color);
+}
+
+.footer-newsletter p {
+  font-size: 0.8rem;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 1rem;
+  border-bottom: 1px solid var(--footer-text-color);
+  padding-bottom: 0.5rem;
+}
+
+.newsletter-form input {
+  border: none;
+  background: transparent;
+  flex-grow: 1;
+  font-size: 0.9rem;
+}
+
+.newsletter-form input:focus {
+  outline: none;
+}
+
+.newsletter-btn {
+  background: transparent;
+  border: none;
+  color: var(--footer-text-color);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.social-links {
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  margin-right: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--footer-text-color);
+}
+
+.commitments {
+  flex: 1 1 150px;
+  text-align: center;
+}
+
+.commitments img {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.copyright-bar {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
+}
+
+.copyright-bar p,
+.copyright-bar a {
+  color: #999;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .newsletter-form {
+    justify-content: center;
+  }
+
+  .social-links a {
+    margin: 0 0.5rem;
+  }
+}
+/* Styling for Add to Bag Buttons on Men's Page */
+/* Styling for Add to Bag Buttons on Men's Page (Copied from category pages) */
+.product-card .add-to-bag-btn {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    background-color: var(--brown-chocolate); /* This is the category page color */
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    margin-top: auto; /* This aligns the button to the bottom of the card */
+    text-decoration: none; /* Added to be safe */
+    border-radius: 0; /* Added to be safe */
+}
+
+.product-card .add-to-bag-btn:hover {
+    background-color: var(--dark-chocolate); /* This is the category page hover color */
+    border-color: transparent; /* Added to be safe */
+    color: #fff; /* Added to be safe */
+    transform: none; /* Added to be safe */
+}

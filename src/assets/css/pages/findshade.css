@@ -1,0 +1,182 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Open+Sans:wght@400;500&display=swap');
+
+:root{
+  --accent:#8b1f4a;
+  --shadow:#3a2a1f;
+}
+
+/* page base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Open Sans", sans-serif;
+  color:var(--shadow);
+  background:#fff;
+}
+
+/* container */
+.shade-container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:40px 20px 90px;
+  text-align:center;
+}
+
+/* heading */
+.title{
+  font-family:'Playfair Display',serif;
+  font-size:2.9rem;
+  margin:0;
+  color:#111;
+  font-weight:500;
+}
+.title em{
+  font-style:italic;
+  font-weight:600;
+  color: var(--accent);
+}
+.subtitle{
+  margin:10px 0 28px;
+  color:#666;
+}
+
+/* labels above slider */
+.shade-labels{
+  width:80%;
+  max-width:900px;
+  margin:0 auto 12px;
+  display:flex;
+  justify-content:space-between;
+  color:#7b6b61;
+  font-size:0.9rem;
+}
+
+/* slider bar styling */
+.slider{
+  -webkit-appearance:none;
+  width:80%;
+  max-width:900px;
+  height:12px;
+  margin:10px auto 28px;
+  display:block;
+  background:linear-gradient(90deg,#f6c49f,#8b4b2b);
+  border-radius:10px;
+  outline:none;
+  cursor:pointer;
+}
+.slider::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:22px;height:22px;border-radius:50%;
+  background:#3a1e12;cursor:pointer;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* carousel frame */
+.shade-carousel{
+  width:100%;
+  height:60vh;            /* desired big center area */
+  min-height:360px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  position:relative;
+}
+
+/* track that moves */
+.shade-track{
+  display:flex;
+  align-items:center;
+  gap:28px;               /* visible spacing */
+  transition:transform 0.7s cubic-bezier(.2,.9,.2,1);
+  will-change:transform;
+  padding:0 12vw;        /* give horizontal breathing room so neighbors show half */
+}
+
+/* each item */
+.shade-item{
+  flex:0 0 auto;
+  width:60vw;            /* wide main image; adjust to control how much neighbors show */
+  max-width:650px;
+  border-radius:14px;
+  overflow:hidden;
+  transition: transform .6s ease, opacity .6s ease, filter .6s ease;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f3f3f3;
+  box-shadow: 0 6px 30px rgba(10,10,10,0.06);
+}
+
+/* image inside */
+.shade-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform-origin:center;
+}
+
+/* unselected style (faded + slightly blurred + smaller) */
+.shade-item:not(.active){
+  opacity:0.36;
+  filter: blur(2px);
+  transform: scale(0.92);
+}
+
+/* selected center style (bright & sharp) */
+.shade-item.active{
+  opacity:1;
+  filter: none;
+  transform: scale(1);
+}
+
+/* small screen tweaks */
+@media (max-width:900px){
+  .title{font-size:2.2rem}
+  .shade-labels{width:90%}
+  .shade-track{gap:18px;padding:0 8vw}
+  .shade-item{width:80vw;max-width:420px}
+  .shade-carousel{height:48vh;min-height:260px}
+}
+
+/* continue */
+.controls{margin-top:36px}
+.continue-btn{
+  background:none;border:none;color:var(--accent);
+  font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  cursor:pointer;padding:10px 18px;font-size:0.95rem;
+}
+.continue-btn:hover{transform:translateX(6px)}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  /* Background image */
+  background-image: url('/assets/images/find-my-shade/bg_image2.jpeg');
+  background-size: cover;      /* makes image cover entire page */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; /* keeps background fixed while scrolling */
+  
+  /* Optional: overlay to make text easier to read */
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.6); /* semi-transparent white overlay */
+  z-index: -1;
+}
+.container, .shade-container {
+  position: relative;
+  z-index: 1;
+}
+

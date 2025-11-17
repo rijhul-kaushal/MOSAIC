@@ -1,0 +1,48 @@
+# --- Dependencies ---
+# You already have this one!
+node_modules/
+
+# --- Build & Output ---
+# This is the folder created when you run "npm run build"
+dist/
+dist-ssr/
+
+# --- Vite ---
+# Vite's cache and build artifacts
+.vite/
+.next/
+.nuxt/
+.svelte-kit/
+.solid/
+
+# --- Environment Variables ---
+# Never commit your secret keys!
+.env
+.env.local
+.env.*.local
+
+# --- Log Files ---
+npm-debug.log*
+yarn-error.log
+pnpm-debug.log*
+logs/
+*.log
+
+# --- IDE & Editor Config ---
+# VS Code
+.vscode/
+# JetBrains (WebStorm, etc.)
+.idea/
+
+# --- Operating System Files ---
+# macOS
+.DS_Store
+._*
+.AppleDouble
+# Windows
+Thumbs.db
+desktop.ini
+
+# --- Test & Coverage Reports ---
+coverage/
+.nyc_output/
